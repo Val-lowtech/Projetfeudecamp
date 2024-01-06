@@ -29,6 +29,21 @@ body{
 .container-fluid    {
     width: 100vw;
     margin: 0 auto;
+    position:relative;
+}
+
+.container-fluid.background-isred {
+    background-color: var(--rouge-fdc);
+}
+
+.container.flex{
+    width: 1280px;
+    gap: 40px;
+}
+
+.container.flex img{
+    max-height: 329px;
+    width: 640px;
 }
 
 section{
@@ -44,12 +59,16 @@ h3  {
 
 h1  {font-size: 96px;line-height: 120%;}
 
-h2 {font-size: 72px; line-height: 120%;}
+h2 {font-size: 72px; line-height: 110%;}
 
 h3 {font-size: 38px; line-height: 120%;}
 
 h4 {font-size: 22px; font-weight: 300;}
 h4.is-dark {color: var(--noir-fdc);}
+
+h2.is-dark {color: var(--noir-fdc);}
+
+p.is-dark {color: var(--noir-fdc);}
 
 h2.half {
     width: 50%;
@@ -303,7 +322,7 @@ nav [role="button"] {
 }
 
 .section-about {
-    margin-top: 140px; height: 100%; padding: 100px; border: 0.50px #EFEFEF solid; display: inline-flex
+    margin-top: 140px; height: 100%; padding: 100px; border: 0.50px #EFEFEF solid; display: flex; margin-bottom: 140px;
 }
 
 .section.about.inside {
@@ -327,11 +346,6 @@ nav [role="button"] {
     max-width: 750px;
 }
 
-.section-about {
-    min-width: 100%;
-}
-
-
 .flex {
     display: flex;
     justify-content: space-between;
@@ -346,3 +360,5 @@ nav [role="button"] {
     padding-right: 40px;
     transition: all 0.3s ease-in-out;
 }
+
+.cta-links-container{display: flex;}
