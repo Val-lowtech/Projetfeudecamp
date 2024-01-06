@@ -75,6 +75,10 @@ h2.half {
     color: #EFEFEF;
 }
 
+h2.is-800px{
+    min-width:800px;
+}
+
 .red {
     color: var(--rouge-fdc);
 }
@@ -361,4 +365,9 @@ nav [role="button"] {
     transition: all 0.3s ease-in-out;
 }
 
-.cta-links-container{display: flex;}
+.cta-links-container{display: flex;padding-bottom: 140px;}
+
+.container .flex > a {
+    align-self: end;
+    width: 100%;
+}
