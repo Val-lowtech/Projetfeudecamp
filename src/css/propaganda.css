@@ -1,0 +1,9 @@
+:root{
+    --noir-fdc: #1C1C1C;
+    --rouge-fdc: #DF352C;
+    --blanc-fdc: #FEFDF9;
+}
+
+body{
+    background-color: var(--rouge-fdc);
+}
