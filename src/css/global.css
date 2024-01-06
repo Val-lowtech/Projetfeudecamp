@@ -278,7 +278,7 @@ nav [role="button"] {
 }
 
 .fdc-actions .right {
-    flex: 1 1 0; background: var(--rouge-fdc); flex-direction: column; justify-content: flex-end; align-items: flex-start; display: inline-flex
+    flex: 1 1 0; background: var(--rouge-fdc); flex-direction: column; justify-content: flex-end; align-items: flex-start; display: inline-flex; min-width: 1059px;
 }
 
 .fdc-actions .left .icon {
