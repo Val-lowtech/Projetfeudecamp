@@ -10,7 +10,7 @@
 }
 
 :root{
-    --noir-fdc: #1C1C1C;
+    --noir-fdc: #0c0c0c;
     --rouge-fdc: #EB3726;
     --blanc-fdc: #FEFDF9;
 }
@@ -141,9 +141,8 @@ text-transform: uppercase;}
     transition: all 0.2s ease;}
 
 .bouton.secondary   {
-    border-bottom: 1px solid var(--noir-fdc);
+    border-bottom: 1px solid var(--blanc-fdc);
     height: 45px;
-    margin-top: 21px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -152,6 +151,15 @@ text-transform: uppercase;}
 overflow: hidden;
 position: relative;
 text-transform: uppercase;}
+
+.bouton.secondary.has-margin-top {
+    margin-top: 21px;
+}
+
+.bouton.secondary.arrow-right.is-dark {
+    color: var(--noir-fdc);
+    border-bottom: 1px solid var(--noir-fdc);
+}
 
 .bouton.secondary.arrow-right::after{
     content: "→";
@@ -292,6 +300,11 @@ nav [role="button"] {
     flex: 1 1 0; background: var(--rouge-fdc); flex-direction: column; justify-content: flex-end; align-items: flex-start; display: inline-flex; min-width: 1059px;
 }
 
+.fdc-actions .right:hover{
+    outline: solid 2px var(--blanc-fdc);
+    transition: all 250ms;
+}
+
 .fdc-actions .left .icon {
         width: 42px; height: 34px; position: relative;display: flex;
 }
@@ -364,7 +377,6 @@ nav [role="button"] {
 .flex {
     display: flex;
     justify-content: space-between;
-    width: 1042px;
 }
 
 .bouton.secondary.arrow-right:hover::after{
@@ -376,9 +388,25 @@ nav [role="button"] {
     transition: all 0.3s ease-in-out;
 }
 
-.cta-links-container{display: flex;padding-bottom: 140px;}
+.cta-links-container{padding-bottom: 140px;padding-top: 20px;}
 
 .container .flex > a {
     align-self: end;
-    width: 100%;
+}
+
+.flex.width-1042{
+    width: 1042px;
+}
+
+.adresse {
+    padding-top: 20px;
+}
+
+.flex.nospace-between{
+    justify-content: start;
+}
+
+.container.flex .icon{
+    width: 26px;
+    margin-right: 20px;
 }
