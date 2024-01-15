@@ -42,8 +42,7 @@ body{
 }
 
 .container.flex img{
-    max-height: 329px;
-    width: 640px;
+    width: 600px;
 }
 
 section{
@@ -85,7 +84,7 @@ h2.half {
 }
 
 h2.is-800px{
-    min-width:800px;
+    max-width:800px;
 }
 
 .red {
@@ -409,4 +408,557 @@ nav [role="button"] {
 .container.flex .icon{
     width: 26px;
     margin-right: 20px;
+}
+
+.flex.width-is-1000px{
+    width: 1000px;
+}
+
+.bouton{font-size: 18px;font-weight: 500;}
+
+.cta-left{
+    width: 55%;
+}
+
+.container-evenement {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+
+.border-box {
+    width: 1256px;
+    height: 279px;
+    left: 0;
+    top: 0;
+    position: relative;
+    border: 1px #EB3726 solid;
+}
+
+.number {
+    left: 102px;
+    top: 82px;
+    position: absolute;
+    color: #EFEFEF;
+    font-size: 38px;
+    font-family: Adelphe;
+    font-weight: 62;
+    line-height: 49.40px;
+    word-wrap: break-word;
+}
+
+.date-location {
+    left: 76px;
+    top: 139px;
+    position: absolute;
+    text-align: center;
+}
+
+.date-location span {
+    color: #EFEFEF;
+    font-size: 17.50px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 22.75px;
+    word-wrap: break-word;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.event-image {
+    width: 363px;
+    height: 209px;
+    left: 255px;
+    top: 35px;
+    position: absolute;
+}
+
+.quote {
+    width: 367px;
+    left: 725px;
+    top: 82px;
+    position: absolute;
+    color: #EFEFEF;
+    font-size: 28px;
+    font-family: Adelphe;
+    font-weight: 63;
+    line-height: 33.60px;
+    word-wrap: break-word;
+}
+
+.event-link {
+    width: 353px;
+    height: 78px;
+    left: 884px;
+    top: 185px;
+    position: absolute;
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: inline-flex;
+}
+
+.link-text {
+    color: #EFEFEF;
+    font-size: 16px;
+    font-family: Amiamie;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 19.20px;
+    letter-spacing: 0.32px;
+    word-wrap: break-word;
+}
+
+.circle {
+    width: 78px;
+    height: 78px;
+    position: relative;
+}
+
+.inner-circle {
+    width: 41.44px;
+    height: 41.44px;
+    left: 18.28px;
+    top: 18.28px;
+    position: absolute;
+    background: white;
+    border: 0.50px black solid;
+}
+
+.project-container {
+    width: 100%;
+    height: 100%;
+    border: 1px #EFEFEF solid;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+}
+
+.header-card {
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+}
+
+.title-container {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px #EFEFEF solid;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    display: flex;
+}
+
+.project-title {
+    color: #EFEFEF;
+    font-size: 18px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.duration-container {
+    width: 120px;
+    align-self: stretch;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    display: flex;
+}
+
+.duration {
+    text-align: right;
+    color: #EFEFEF;
+    font-size: 14px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 21px;
+    word-wrap: break-word;
+}
+
+.content {
+    align-self: stretch;
+    height: 312px;
+    padding-top: 24px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    padding-right: 14px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.project-details {
+    align-self: stretch;
+    height: 176px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    display: flex;
+}
+
+.project-name {
+    width: 310px;
+    color: #EFEFEF;
+    font-size: 28px;
+    font-family: Adelphe;
+    font-weight: 63;
+    line-height: 39.20px;
+    word-wrap: break-word;
+}
+
+.project-description {
+    width: 288px;
+    color: #EFEFEF;
+    font-size: 20px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+
+.read-more {
+    align-self: stretch;
+    padding-top: 55px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: inline-flex;
+}
+
+.container-card {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    width: 100%;
+    height: 100%;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #EB3726;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    display: inline-flex;
+}
+
+.newsletter,
+.footer-links,
+.contacts,
+.separator,
+.copyright {
+    width: 1280px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 80px;
+    display: flex;
+}
+
+.title {
+    align-self: stretch;
+    height: 28px;
+    color: black;
+    font-size: 21px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.description {
+    width: 524px;
+    color: black;
+    font-size: 16px;
+    font-family: Amiamie;
+    font-weight: 400;
+    line-height: 19.20px;
+    word-wrap: break-word;
+}
+
+.email-input {
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: flex-start;
+    display: inline-flex;
+}
+
+.input-container {
+    flex: 1 1 0;
+    height: 49px;
+    padding: 12px;
+    background: #1C1C1C;
+    border: 1px black solid;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    display: flex;
+}
+
+.placeholder {
+    flex: 1 1 0;
+    color: white;
+    font-size: 21px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.subscribe-btn {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 1px black solid;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    display: flex;
+    color: black;
+    font-size: 21px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.privacy-policy {
+    align-self: stretch;
+    color: black;
+    font-size: 12px;
+    font-family: Roboto;
+    font-weight: 400;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+
+.footer-links,
+.contacts {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.section-title {
+    align-self: stretch;
+    color: black;
+    font-size: 16px;
+    font-family: Amiamie;
+    font-weight: 400;
+    line-height: 19.20px;
+    word-wrap: break-word;
+}
+
+.link {
+    flex: 1 1 0;
+    color: black;
+    font-size: 21px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.contacts .info {
+    flex: 1 1 0;
+    color: black;
+    font-size: 21px;
+    font-family: Amiamie;
+    font-weight: 300;
+    line-height: 25.20px;
+    word-wrap: break-word;
+}
+
+.separator {
+    align-self: stretch;
+    height: 57px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px;
+    display: flex;
+}
+
+.line {
+    align-self: stretch;
+    height: 1px;
+    background: black;
+}
+
+.copyright {
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: flex-start;
+    display: inline-flex;
+}
+
+.copyright-text {
+    color: black;
+    font-size: 16px;
+    font-family: Amiamie;
+    font-weight: 400;
+    line-height: 19.20px;
+    word-wrap: break-word;
+}
+
+.legal-links {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    display: flex;
+}
+
+.legal-link {
+    color: black;
+    font-size: 16px;
+    font-family: Amiamie;
+    font-weight: 400;
+    line-height: 19.20px;
+    word-wrap: break-word;
+}
+
+.social-icons {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    display: flex;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.icon::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 2.24px;
+    position: absolute;
+    background: black;
+}
+
+.icon::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3.24px;
+    position: absolute;
+    background: black;
+}
+
+.icon span {
+    content: "";
+    width: 20.01px;
+    height: 14.01px;
+    left: 1.99px;
+    top: 5px;
+    position: absolute;
+    background: black;
+}
+
+.footer-container {
+    width: 100%;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #EB3726;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+    display: flex;
+}
+
+.footer-content {
+    width: 1280px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 80px;
+    display: flex;
+}
+
+.footer-links, .contacts {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.email-input, .social-icons, .legal-links {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.separator {
+    height: 1px;
+    background: black;
+}
+
+.copyright {
+    height: 57px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px;
+    display: flex;
+}
+
+.footer-links-subsection {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    display: inline-flex;
+}
+
+.social-icons-subsection {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    display: inline-flex;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.social-icon div {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: black;
 }
