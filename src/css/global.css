@@ -214,9 +214,8 @@ text-transform: uppercase;}
 
 .header.is-red {
     background-color: var(--rouge-fdc);
-    min-height: 100vh;
+    min-height: 80vh;
     padding: 0px!important;
-    margin-top: -100px!important;
 }
 
 .header.is-red h1   {
@@ -231,7 +230,7 @@ text-transform: uppercase;}
 
 .button.is-wrap{
     display: flex;
-    padding-bottom: 140px;
+    padding-bottom: 100px;
 }
 
 .button.is-wrap a {
@@ -258,6 +257,10 @@ a {
 .nav-parent {
     background-color: var(--rouge-fdc);
     display: flex;
+    position: fixed;
+  z-index: 9999999;
+  top: 0;
+  padding-bottom: 4px;
 
 }
 
