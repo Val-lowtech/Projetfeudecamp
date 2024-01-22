@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "accueils",
+  "info": {
+    "singularName": "accueil",
+    "pluralName": "accueils",
+    "displayName": "accueil",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "text"
+    },
+    "h2": {
+      "type": "text"
+    },
+    "propaganda": {
+      "displayName": "action",
+      "type": "component",
+      "repeatable": false,
+      "component": "propaganda.action"
+    },
+    "Collectifeu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "propaganda.action"
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about-section.about-section"
+    }
+  }
+}

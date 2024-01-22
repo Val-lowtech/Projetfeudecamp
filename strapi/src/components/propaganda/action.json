@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_propaganda_actions",
+  "info": {
+    "displayName": "action",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titre_gauche": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "default": "Propaganda, etincelles..."
+    },
+    "sous_titre_droite": {
+      "type": "text",
+      "default": "description ou \"tags\""
+    },
+    "h3_droite": {
+      "type": "text",
+      "default": "Créer de l’engagement autour de la cause  de celleux qui portent le changement"
+    }
+  }
+}

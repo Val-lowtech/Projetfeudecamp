@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbackend=self.webpackChunkbackend||[]).push([[1762],{91762:(t,e,n)=>{n.r(e),n.d(e,{default:()=>d});const d={"plugin.description.long":"L\xE4gger till en GraphQL-rutt med standard API-metoder.","plugin.description.short":"L\xE4gger till en GraphQL-rutt med standard API-metoder.","plugin.name":"GraphQL"}}}]);
