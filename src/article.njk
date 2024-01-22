@@ -1,0 +1,26 @@
+---
+title: Article
+layout: layouts/base.njk
+pagination:
+  data: articles.data
+  size: 1
+  alias: article
+permalink: 'articles/{{ article.attributes.title }}/'
+---
+
+<main>
+<header class="header is-red">
+  <div class="container padding-top-240">
+    <h2 class="is-dark" style="padding-bottom: 40px;">{{ article.attributes.title }}</h2>
+      <div class="fleche is-down"><svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78" fill="none">
+        <path d="M38.1378 67.4394L15.7313 45.033C15.5028 44.8044 15.3744 44.4944 15.3744 44.1712C15.3744 43.848 15.5028 43.538 15.7313 43.3094C15.9599 43.0809 16.2699 42.9524 16.5931 42.9524C16.9164 42.9524 17.2263 43.0809 17.4549 43.3094L37.7801 63.6346L37.7801 11.4233C37.7801 11.0999 37.9086 10.7897 38.1373 10.561C38.366 10.3324 38.6762 10.2039 38.9996 10.2039C39.323 10.2039 39.6331 10.3324 39.8618 10.561C40.0905 10.7897 40.219 11.0999 40.219 11.4233L40.219 63.6346L60.5442 43.3094C60.7728 43.0809 61.0828 42.9524 61.406 42.9524C61.7292 42.9524 62.0392 43.0809 62.2678 43.3094C62.4964 43.538 62.6248 43.848 62.6248 44.1712C62.6248 44.4944 62.4964 44.8044 62.2678 45.033L39.8614 67.4394C39.6328 67.668 39.3228 67.7964 38.9996 67.7964C38.6763 67.7964 38.3663 67.668 38.1378 67.4394Z" fill="#1C1C1C"/></svg>
+      </div>
+  </div>
+</header>
+
+<section class="container">
+  <div class="container">
+    <p>{{ article.attributes.content }}</p>
+  </div>
+</main>
+

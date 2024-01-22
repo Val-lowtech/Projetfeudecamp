@@ -121,12 +121,12 @@ a   {
 text-transform: uppercase;}
 
 .bouton.primary.arrow {
-    padding: 20px 40px 20px 20px;
+    padding: 20px 20px 20px 20px;
     }
 
 
 .bouton.primary.arrow::after {
-    content: "↓";
+    content: "";
     position: absolute;
     margin-left: 10px;
     transition: all 0.3s ease;
@@ -134,6 +134,7 @@ text-transform: uppercase;}
 
 .bouton.primary.arrow:hover::after {
     animation: arrow-animation 1s ease;
+    content: "↓";
     }
 
 
@@ -334,8 +335,8 @@ nav [role="button"] {
 }
 
 .fdc-actions .right:hover{
-    outline: solid 2px var(--blanc-fdc);
-    transition: all 250ms;
+  /*  outline: solid 2px var(--blanc-fdc);
+    transition: all 250ms;*/
 }
 
 .fdc-actions .left .icon {
@@ -343,7 +344,6 @@ nav [role="button"] {
 }
 
 .fdc-actions .right .actions-description {
-
     height: 50px;
     flex-direction: column;
     justify-content: flex-start;
