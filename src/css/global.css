@@ -1370,9 +1370,26 @@ li > a:only-child:after { content: ''; }
   }
 
   nav, nav ul{
-    display: inline-block;
-    gap:0;
+   /*display: inline-block;*/
+    overflow:scroll;
+    gap:10;
 
+  }
+
+  nav ul ul{
+    top: 0px;
+  }
+
+  nav ul ul.container-dropdown{
+    position: relative;
+  }
+
+  nav ul li:hover > ul {
+    position: relative;
+  }
+
+  nav ul {
+    align-items: baseline;
   }
 
   li {
