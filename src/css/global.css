@@ -1339,10 +1339,12 @@ li > a:only-child:after { content: ''; }
 
     .fdc-actions .right .actions-description {
         height: auto;
+        padding: 20px;
     }
 
     .fdc-actions .right .actions-titre {
         height: auto;
+        padding: 20px;
     }
 
     .fdc-actions {
@@ -1390,6 +1392,15 @@ li > a:only-child:after { content: ''; }
 
   nav ul {
     align-items: baseline;
+  }
+
+  .button.is-wrap a{
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+
+  .button.is-wrap {
+    flex-direction: column;
   }
 
   li {
