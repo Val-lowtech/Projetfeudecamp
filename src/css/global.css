@@ -1371,6 +1371,12 @@ li > a:only-child:after { content: ''; }
 
   nav, nav ul{
     display: inline-block;
+    gap:0;
+
+  }
+
+  li {
+    margin-top: 10px;
   }
 
   .nav-parent {
@@ -1384,6 +1390,11 @@ li > a:only-child:after { content: ''; }
   
   .flex.width-is-1000px {
     width: 100%;
+  }
+
+  .container.classformobile{
+    display: flex;
+    flex-direction: column;
   }
 
   .newsletter, .footer-links, .contacts, .separator, .copyright, .description{
