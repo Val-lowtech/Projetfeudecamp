@@ -6,6 +6,6 @@ module.exports = async () => {
     console.dir(res.data, { depth: null });
     return res.data;
   } catch (error) {
-    console.error('Error fetching data from Strapi:', error);
+    console.error('Error fetching data from Strapi:', error); 
   }
 };
