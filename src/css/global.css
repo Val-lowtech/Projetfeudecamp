@@ -1382,6 +1382,9 @@ li > a:only-child:after { content: ''; }
     padding-top: 100px;
   }
   
+  .flex.width-is-1000px {
+    width: 100%;
+  }
 
   .newsletter, .footer-links, .contacts, .separator, .copyright, .description{
     width: 95%;
