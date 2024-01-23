@@ -25,8 +25,8 @@ jobs:
         run: |
           # Add your Jelastic deployment commands here
           # Example: Use Jelastic API to deploy the application
-          curl -u ${JELASTIC_USER}:${JELASTIC_PASSWORD} -X POST -d '{"type":"deploy", "envName":"your-environment", "context":"ROOT", "nodes":["${JELASTIC_NODE}"]}' https://app.j.layershift.co.uk/1.0/environment/control/rest/deployment/your-environment
+          curl -u ${JELASTIC_USER}:${JELASTIC_PASSWORD} -X POST -d '{"type":"deploy", "envName":"backend-pfdc.jcloud.ik-server.com", "context":"ROOT", "nodes":["${JELASTIC_NODE}"]}' https://app.j.layershift.co.uk/1.0/environment/control/rest/deployment/your-environment
         env:
           JELASTIC_USER: ${{ secrets.JELASTIC_USER }}
           JELASTIC_PASSWORD: ${{ secrets.JELASTIC_PASSWORD }}
-          JELASTIC_NODE: your-node-id
+          JELASTIC_NODE: 146002
