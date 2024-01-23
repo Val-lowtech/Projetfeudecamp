@@ -7,7 +7,7 @@ const server = http.createServer(async (req, res) => {
 
     try {
       // Fais une nouvelle requête pour obtenir les données mises à jour depuis Strapi
-      const response = await axios.get('http://localhost:1337/api/articles?populate=*');
+      const response = await axios.get('http://backend-pfdc.jcloud.ik-server.com:1337/api/articles?populate=*');
       
       // Assure-toi d'avoir la logique pour mettre à jour tes données dans `articles.js`
       // En fonction de ta structure, tu devrais ajuster cela
