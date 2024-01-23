@@ -1430,6 +1430,36 @@ li > a:only-child:after { content: ''; }
     flex-direction: column;
   }
 
+  .title.is-red, .description.is-red {
+    width: 95%;
+  }
+
+  .section-about{
+    padding: 20px;
+  }
+
+  .section.about.inside {
+    flex-direction: column;
+  }
+
+  header {
+    padding-top: 50px;
+  }
+
+  .bouton.secondary {
+    height: auto;
+  }
+
+  .fdc-actions {
+    gap: 10px;
+  }
+
+  .hiddenonmobile {display: none;}
+
+  .fdc-actions .right.accordeons {
+    flex-direction: column;
+  }
+
 }
     /* Adjust other styles as needed for smaller screens */
 
