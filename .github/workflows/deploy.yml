@@ -1,26 +1,30 @@
-name: Deploy Strapi CMS
+name: Update Frontend on Strapi API Change
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "*/5 * * * *"
+
 jobs:
-  deploy:
+  update-frontend:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set Up Docker
-      uses: actions/setup-docker@v2
-
-    - name: Build and Deploy Strapi
+    - name: Check Strapi API for Changes
       run: |
-        # Add commands to build and deploy your Strapi CMS using Docker
-run: |
-  docker login -u ${{ secrets.bxl@projetfeudecamp.be }} -p ${{ secrets."a'r6RX4xts^AJg }}
-  docker build -t mystrapi .
-  docker tag your-strapi-image projetfeudecamp/mystrapi:latest
-  docker push projetfeudecamp/mystrapi:latest
-  # Add commands to deploy the updated image on your Jelastic environment
-
+        curl -s http://83.166.147.249:1337/api/accueil?populate=* > current_response.json
+        if diff -q current_response.json previous_response.json > /dev/null; then
+          echo "No changes in the Strapi API."
+          exit 0
+        else
+          echo "Changes detected in the Strapi API. Updating frontend..."
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Update frontend on Strapi API change"
+          git push --quiet --set-upstream origin ${{ github.head_ref }}
+        fi
+        mv current_response.json previous_response.json
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
