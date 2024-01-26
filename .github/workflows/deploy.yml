@@ -1,7 +1,7 @@
 name: Update Frontend on Strapi API Change
 on:
   schedule:
-    - cron: "*/.1 * * * *"
+    - cron: "*/10 * * * * *"
 
 jobs:
   update-frontend:
