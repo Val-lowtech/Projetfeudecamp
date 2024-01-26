@@ -1,14 +1,10 @@
 name: Update Frontend on Strapi API Change
-
 on:
-  workflow_run:
-    workflows: ["Check Strapi API for Changes"]
-    types:
-      - completed
+  schedule:
+    - cron: "*/.1 * * * *"
 
 jobs:
   update-frontend:
-    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     steps:
@@ -19,20 +15,16 @@ jobs:
       run: |
         curl -s http://83.166.147.249:1337/api/accueil?populate=* > current_response.json
         if [ $? -eq 0 ]; then
-          if [ -f previous_response.json ]; then
-            if ! cmp -s current_response.json previous_response.json; then
-              echo "Changes detected in the Strapi API. Updating frontend..."
-              git config --local user.email "actions@github.com"
-              git config --local user.name "GitHub Actions"
-              git add .
-              git commit -m "Update frontend on Strapi API change"
-              git push --quiet --set-upstream origin ${{ github.head_ref }}
-              mv current_response.json previous_response.json
-            else
-              echo "No changes in the Strapi API."
-            fi
+          if diff -q current_response.json previous_response.json > /dev/null; then
+            echo "No changes in the Strapi API. Skipping workflow execution."
+            exit 0
           else
-            echo "No previous response file found. Assuming initial run."
+            echo "Changes detected in the Strapi API. Updating frontend..."
+            git config --local user.email "actions@github.com"
+            git config --local user.name "GitHub Actions"
+            git add .
+            git commit -m "Update frontend on Strapi API change"
+            git push --quiet --set-upstream origin ${{ github.head_ref }}
             mv current_response.json previous_response.json
           fi
         else
