@@ -1,0 +1,26 @@
+name: Deploy Strapi CMS
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set Up Docker
+      uses: actions/setup-docker@v2
+
+    - name: Build and Deploy Strapi
+      run: |
+        # Add commands to build and deploy your Strapi CMS using Docker
+run: |
+  docker login -u ${{ secrets.bxl@projetfeudecamp.be }} -p ${{ secrets."a'r6RX4xts^AJg }}
+  docker build -t mystrapi .
+  docker tag your-strapi-image projetfeudecamp/mystrapi:latest
+  docker push projetfeudecamp/mystrapi:latest
+  # Add commands to deploy the updated image on your Jelastic environment
+
