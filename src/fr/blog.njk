@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<h1>Archive</h1>
+
+<!-- Ton template utilisant la boucle -->
+<ul>
+  {%- for article in articles.data -%}
+    <li><a href="/articles/{{ article.attributes.title }}/">{{ article.attributes.title }}</a></li>
+  {%- endfor -%}
+</ul>
+
+

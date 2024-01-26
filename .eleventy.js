@@ -1,4 +1,6 @@
 const HtmlMin = require('html-minifier');
+const { EleventyI18nPlugin } = require("@11ty/eleventy");
+
 
 module.exports = eleventyConfig => {
   eleventyConfig.setTemplateFormats(['njk']);
@@ -6,6 +8,10 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy("src/css/");
   eleventyConfig.addWatchTarget('src/_data/');
   eleventyConfig.addWatchTarget("src/css/");
+  eleventyConfig.addPlugin(EleventyI18nPlugin, {
+    // any valid BCP 47-compatible language tag is supported
+    defaultLanguage: "fr", // Required, this site uses "en"
+  });
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath.endsWith('.html')) {
       let minified = HtmlMin.minify(content, {

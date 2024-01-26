@@ -2,7 +2,7 @@ const axios = require('axios');
 
 module.exports = async () => {
   try {
-    const res = await axios.get('https://effortless-light-cc77bc4294.strapiapp.com/api/evenements?populate=*');
+    const res = await axios.get('http://83.166.147.249:1337/api/evenements?populate=*');
     console.dir(res.data, { depth: null });
     return res.data;
   } catch (error) {
