@@ -7,7 +7,7 @@
  {% endblock %}
 </head>
 <body>
-    <div class="nav-parent container-fluid">
+    <div class="nav-parent container-fluid hidden-mobile">
         <nav class="container classformobile">
         <ul>
             <li div="logo"><a href="index.html" aria-label="Revenir à la page d'accueil">
@@ -147,6 +147,32 @@
     </nav>
     </div>
 </div>
+<div class="nav-mobile">
+    <div class="nav-mobile-inside">
+        <div class="nav-mobile-coloumn-1 first">
+            <a class="Logo-mobile" href="/accueil">
+              <img src="/assets/images/logo.svg" alt="Logo Projet Feu de Camp" style="height: 55px;">
+            </a>
+        </div>
+        <div class="nav-mobile-coloumn-1">
+             <button id="menuButton" onclick="myFunction()" class="burger-menu">Menu</button>
+            <div id="myDropdown" class="inside-burger">
+            <a href="/index.html" class="btn-menu-mobile">Accueil</a>
+<a href="./" class="btn-menu-mobile">Actions</a>
+<a href="./" class="btn-menu-mobile">À Propos</a>
+<a href="./" class="btn-menu-mobile">Agenda</a>
+<a href="./" class="btn-menu-mobile">Contact</a>
+{% for link in page.url | locale_links %}
+    {%- if not loop.first %},{% endif %}
+    <a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}"><u>{{link.label}}</u></a>
+{% endfor %}
+<a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 35px!important; display: inherit;" aria-label="lien vers Facebook"> <img src="/assets/images/icons8-facebook.svg" alt="facebook lien"></a>
+<a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 25px!important; display: inherit;" aria-label="lien vers Instagram"> <img src="/assets/images/icons8-instagram.svg" alt="instagram lien"></a>
+
+            </div>
+        </div>
+    </div>
+</div>
 <main>
 {{ content | safe}}
 </main>
@@ -215,4 +241,40 @@
     </div>
 </footer>
 </body>
+<script>
+// Déclaration de la fonction myFunction ici
+function myFunction() {
+  var dropdown = document.getElementById("myDropdown");
+  dropdown.classList.toggle("show");
+
+  // Changement du texte du bouton en fonction de la visibilité du dropdown
+  var menuButton = document.getElementById("menuButton");
+  if (dropdown.classList.contains("show")) {
+    menuButton.innerHTML = "Fermer le menu";
+  } else {
+    menuButton.innerHTML = "Menu";
+  }
+}
+
+// Fermeture du menu déroulant si l'utilisateur clique en dehors
+window.onclick = function(event) {
+  if (!event.target.matches('.burger-menu')) {
+    var dropdowns = document.getElementsByClassName("inside-burger");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+
+        // Réinitialisation du texte du bouton lors de la fermeture du menu
+        var menuButton = document.getElementById("menuButton");
+        menuButton.innerHTML = "Menu";
+      }
+    }
+  }
+} 
+</script>
+
+
+</script>
 </html>

@@ -1306,9 +1306,78 @@ li > a:only-child:after { content: ''; }
 
     /* Adjust other styles as needed for smaller screens */
 }
+.nav-mobile {
+    display: none
+}
+
 
 
 @media only screen and (max-width: 768px) {
+
+    .nav-mobile-inside{
+        display: flex;
+    }
+
+    .nav-mobile-coloumn-1.first {
+        border-right: solid 1px var(--noir-fdc);
+        padding: 10px;
+    }
+
+    .nav-mobile, .nav-mobile-inside {
+        background-color: var(--rouge-fdc);
+        width: 100%;
+    }
+
+   /* .inside-burger[state="hidden"]{
+        display: none;
+    }*/
+   
+    
+    .inside-burger{
+        display: flex;
+    }
+    .inside-burger {
+        display: none;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:flex;}
+
+    .inside-burger {
+        justify-content: space-between;
+  flex-direction: column;
+    }
+
+    .inside-burger a {
+        padding: 10px;
+        text-decoration: none;
+        border-top: 1px solid var(--noir-fdc);
+        color: var(--noir-fdc);
+
+    }
+
+    #menuButton {
+        background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-weight: 600;
+  width: 100%;
+  height: 75px;
+  margin-left: -5px;
+    }
+
+    .nav-mobile-coloumn-1 {
+        flex: 1 1 50%;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+        border-bottom: 1px solid var(--noir-fdc);
+    }
 
     .container {
         width: 95%;
