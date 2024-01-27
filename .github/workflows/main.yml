@@ -1,0 +1,4 @@
+name: Deploy
+on:
+  repository_dispatch:
+    types: [strapi_updated]

@@ -1,7 +1,7 @@
 name: Update Frontend on Strapi API Change
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   update-frontend:
@@ -13,23 +13,25 @@ jobs:
 
     - name: Check Strapi API for Changes
       run: |
-        curl -s http://83.166.147.249:1337/api/accueil?populate=* > current_response.json
-        if [ $? -eq 0 ]; then
-          if diff -q current_response.json previous_response.json > /dev/null; then
-            echo "No changes in the Strapi API. Skipping workflow execution."
-            exit 0
+        for api in "http://83.166.147.249:1337/api/accueil?populate=*" "http://83.166.147.249:1337/api/articles?populate=*" "http://83.166.147.249:1337/api/evenements?populate=*"; do
+          api_name=$(echo $api | awk -F '/' '{print $NF}')
+          curl -s $api > current_response_$api_name.json
+          if [ $? -eq 0 ]; then
+            if diff -q current_response_$api_name.json previous_response_$api_name.json > /dev/null; then
+              echo "No changes in the $api_name API. Skipping workflow execution."
+            else
+              echo "Changes detected in the $api_name API. Updating frontend..."
+              git config --local user.email "actions@github.com"
+              git config --local user.name "GitHub Actions"
+              git add .
+              git commit -m "Update frontend on $api_name API change"
+              git push --quiet --set-upstream origin ${{ github.head_ref }}
+              mv current_response_$api_name.json previous_response_$api_name.json
+            fi
           else
-            echo "Changes detected in the Strapi API. Updating frontend..."
-            git config --local user.email "actions@github.com"
-            git config --local user.name "GitHub Actions"
-            git add .
-            git commit -m "Update frontend on Strapi API change"
-            git push --quiet --set-upstream origin ${{ github.head_ref }}
-            mv current_response.json previous_response.json
+            echo "Error: Unable to fetch $api_name API data."
+            exit 1
           fi
-        else
-          echo "Error: Unable to fetch Strapi API data."
-          exit 1
-        fi
+        done
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
