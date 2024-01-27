@@ -157,19 +157,135 @@
         <div class="nav-mobile-coloumn-1">
              <button id="menuButton" onclick="myFunction()" class="burger-menu">Menu</button>
             <div id="myDropdown" class="inside-burger">
-            <a href="/index.html" class="btn-menu-mobile">Accueil</a>
-<a href="./" class="btn-menu-mobile">Actions</a>
-<a href="./" class="btn-menu-mobile">À Propos</a>
-<a href="./" class="btn-menu-mobile">Agenda</a>
-<a href="./" class="btn-menu-mobile">Contact</a>
-{% for link in page.url | locale_links %}
+            <ul>
+            <li><a href="/index.html" class="link">Accueil</a></li>
+            <li><p class="link-dropdown">Actions</p>
+                <ul>
+                    <div class="container-dropdown">
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/propaganda.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="../../propaganda" class="text-container">
+                                <div class="title">ASBL – PROPAGANDA</div>
+                                <div class="description">Lier celleux qui crée le changement<br> et celleux qui les racontent</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/collectifeu.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <div class="text-container">
+                                <div class="title">LES FEUX SONT FAITS</div>
+                                <div class="description">Le rendez-vous des artistes & <br>céatifves engagéex de BXL</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/flammeche.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <div class="text-container">
+                                <div class="title">INITIATIVES CREATIVES ET<br> ENGAGEES – FLAMMÈCHES</div>
+                                <div class="description">Le rendez-vous des artistes & <br>céatifves engagéex de BXL</div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/etincelle.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <div class="text-container">
+                                <div class="title">TOUT PARTAGER – ETINCELLE</div>
+                                <div class="description">Le rendez-vous des artistes & <br>céatifves engagéex de BXL</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </ul>   
+            </li>
+            <li><p class="link-dropdown">À Propos</p>
+                <ul>
+                    <div class="container-dropdown">
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/propaganda.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="/a-propos/" class="text-container">
+                                <div class="title">Vision</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/collectifeu.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="/a-propos/" class="text-container">
+                                <div class="title">Mission</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/flammeche.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="/a-propos/"  class="text-container">
+                                <div class="title">Valeurs</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/etincelle.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="/a-propos/"  class="text-container">
+                                <div class="title">Rejoindre Le collectif</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <div class="icon-container">
+                                <div class="icon">
+                                    <img class="icon" src="/assets/images/etincelle.svg"
+                                    alt="Propaganda icon" />
+                                </div>
+                            </div>
+                            <a href="/a-propos/"  class="text-container">
+                                <div class="title">Le projet dans 20 ans</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </ul>   
+
+            </li>
+                   <li><a href="./" class="link">Agenda</a></li>
+            <li><a href="./" class="link">Contact</a></li>
+<li>{% for link in page.url | locale_links %}
     {%- if not loop.first %},{% endif %}
     <a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}"><u>{{link.label}}</u></a>
-{% endfor %}
-<a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 35px!important; display: inherit;" aria-label="lien vers Facebook"> <img src="/assets/images/icons8-facebook.svg" alt="facebook lien"></a>
-<a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 25px!important; display: inherit;" aria-label="lien vers Instagram"> <img src="/assets/images/icons8-instagram.svg" alt="instagram lien"></a>
-
-            </div>
+{% endfor %}</li>
+<li><a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 35px!important; display: inherit;" aria-label="lien vers Facebook"> <img src="/assets/images/icons8-facebook.svg" alt="facebook lien"></a>
+</li><li><a href="https://instagram.com/projet.feudecamp" class="contrast" style="max-width: 25px!important; display: inherit;" aria-label="lien vers Instagram"> <img src="/assets/images/icons8-instagram.svg" alt="instagram lien"></a>
+         </li>   </div>
         </div>
     </div>
 </div>
