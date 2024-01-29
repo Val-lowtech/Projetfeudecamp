@@ -22,18 +22,18 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
 <section id="actions" class="container">
   <h2 class="half">{{ accueil.data.attributes.h2 }}</span></h2> 
   <div class="container">
-
+{% for activite in activites.data %}
   <div class="fdc-actions">
     <div class="left">
         <img class="icon" src="/assets/images/propaganda.svg"
         alt="Propaganda icon" />
-        <p>{{ accueil.data.attributes.propaganda.titre_gauche }}</p>
+        <p>{{ activites.data.attributes.Nom }}</p>
     </div>
     <div class="right">
         <a href="propaganda">
         <div class="actions-description">
             <div>
-                <p class="is-dark">{{ accueil.data.attributes.propaganda.sous_titre_droite }}</p>
+                <p class="is-dark">{{ activites.data.attributes.courte_description }}</p>
             </div>
         </div>
         <div class="actions-titre">
@@ -43,68 +43,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
     </div>
   </div>
 
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/collectifeu.svg" 
-        alt="Propaganda icon" />
-        <p>{{ accueil.data.attributes.Collectifeu.titre_gauche }}</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">{{ accueil.data.attributes.Collectifeu.sous_titre_droite }}</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>{{ accueil.data.attributes.Collectifeu.h3_droite }}</h4> 
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre l'agenda </a> 
-        </div></a>
-    </div>
-</div>
-
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/flammeche.svg"
-        alt="Propaganda icon" />
-        <p>Flammèche</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">Expositions – Ateliers - Marchés - Entraide</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>Mettre en réseau les initatives engagées et créatives de Bruxelles déjà en place</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre des Flammèches dans ton quartier </a>
-        </div></a>
-    </div>
-</div>
-
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/etincelle.svg"
-        alt="Propaganda icon" />
-        <p>Etincelles</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">Ressources créatives - Accompagnement - Formation  - & plus</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>Passez le flambeau à celleux qui veulent faire leurs propre chemin</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-        </div></a>
-    </div>
-</div>
+ {% endfor %} 
 </section>
 
 

@@ -13,7 +13,7 @@ jobs:
 
     - name: Check Strapi API for Changes
       run: |
-        for api in "http://83.166.147.249:1337/api/accueil?populate=*" "http://83.166.147.249:1337/api/articles?populate=*" "http://83.166.147.249:1337/api/evenements?populate=*"; do
+        for api in "http://185.172.103.40:1337/api/accueil?populate=*" "http://185.172.103.40:1337/api/articles?populate=*" "http://185.172.103.40:1337/api/evenements?populate=*"; do
           api_name=$(echo $api | awk -F '/' '{print $NF}')
           curl -s $api > current_response_$api_name.json
           if [ $? -eq 0 ]; then
