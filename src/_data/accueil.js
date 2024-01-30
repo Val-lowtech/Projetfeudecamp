@@ -9,3 +9,4 @@ module.exports = async () => {
     console.error('Error fetching data from Strapi:', error);
   }
 };
+

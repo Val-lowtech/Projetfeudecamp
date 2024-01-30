@@ -25,26 +25,27 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
 {% for activite in activites.data %}
   <div class="fdc-actions">
     <div class="left">
-        <img class="icon" src="/assets/images/propaganda.svg"
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.attributes.url }}" alt="Propaganda icon" />
+
         alt="Propaganda icon" />
-        <p>{{ activites.data.attributes.Nom }}</p>
+        <p>{{ activite.attributes.Nom }}</p>
     </div>
     <div class="right">
         <a href="propaganda">
         <div class="actions-description">
             <div>
-                <p class="is-dark">{{ activites.data.attributes.courte_description }}</p>
+                <p class="is-dark">{{ activite.attributes.courte_description }}</p>
             </div>
         </div>
         <div class="actions-titre">
-            <h4>{{ accueil.data.attributes.propaganda.h3_droite }}</h4> 
+            <h4>{{ activite.attributes.description }}</h4> 
             <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
         </div></a>
     </div>
   </div>
 
  {% endfor %} 
-</section>
+</section> 
 
 
   <section class="container section-about">
@@ -99,6 +100,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
     <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
     </div>
     <div class="container-evenement hidden-mobile">
+
     {% for evenement in evenements.data %}
         <div class="border-box"></div>
         <div class="number">17</div>
