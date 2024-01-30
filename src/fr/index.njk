@@ -17,7 +17,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
         <path d="M38.1378 67.4394L15.7313 45.033C15.5028 44.8044 15.3744 44.4944 15.3744 44.1712C15.3744 43.848 15.5028 43.538 15.7313 43.3094C15.9599 43.0809 16.2699 42.9524 16.5931 42.9524C16.9164 42.9524 17.2263 43.0809 17.4549 43.3094L37.7801 63.6346L37.7801 11.4233C37.7801 11.0999 37.9086 10.7897 38.1373 10.561C38.366 10.3324 38.6762 10.2039 38.9996 10.2039C39.323 10.2039 39.6331 10.3324 39.8618 10.561C40.0905 10.7897 40.219 11.0999 40.219 11.4233L40.219 63.6346L60.5442 43.3094C60.7728 43.0809 61.0828 42.9524 61.406 42.9524C61.7292 42.9524 62.0392 43.0809 62.2678 43.3094C62.4964 43.538 62.6248 43.848 62.6248 44.1712C62.6248 44.4944 62.4964 44.8044 62.2678 45.033L39.8614 67.4394C39.6328 67.668 39.3228 67.7964 38.9996 67.7964C38.6763 67.7964 38.3663 67.668 38.1378 67.4394Z" fill="#1C1C1C"/></svg>
       </div>
     </div>
-  </header> 
+  </header>  
 
 <section id="actions" class="container">
   <h2 class="half">{{ accueil.data.attributes.h2 }}</span></h2> 
@@ -25,9 +25,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
 {% for activite in activites.data %}
   <div class="fdc-actions">
     <div class="left">
-        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.attributes.url }}" alt="Propaganda icon" />
-
-        alt="Propaganda icon" />
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
         <p>{{ activite.attributes.Nom }}</p>
     </div>
     <div class="right">
@@ -103,18 +101,53 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
 
     {% for evenement in evenements.data %}
         <div class="border-box"></div>
-        <div class="number">17</div>
-        <div class="date-location">
-            <span>{{ post.data.date }}<br/>à </span><span class="underline">{{ post.data.lieu }}</span>
-        </div>
-        <img src="/assets/images/event-1.jpg" alt="Placeholder Image" class="event-image" />
-        <div class="quote">{{ evenement.attributes.title }}</div>
+          <div class="number">{{ evenement.attributes.date }}</div>
+            <div class="date-location">
+              <span>{{ post.data.date }}<br/>à </span><span class="underline">{{ post.data.lieu }}</span>
+          </div>
+        <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
+        <div class="quote">{{ evenement.attributes.title }}</div> 
         <div class="event-link">
             <a href="/evenements/{{ evenement.id }}/" class="bouton secondary arrow-right">Voir l’événement</a>
-        </div>
-    </div> 
-    {% endfor %} 
-           
+        </div> 
+    </div>  
+    <!-- Your Nunjucks template file, e.g., event.njk -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  console.log('Script is running.');
+
+  // Define rawData without using let
+  var rawData = '{{ evenement.attributes.date }}';
+  console.log('Raw data:', rawData);
+
+  function formatMyDate(value, locale = 'en-GB') {
+    // Check if the value is empty or undefined
+    if (!value) {
+      console.error('Empty or undefined timestamp.');
+      return 'No Date Available';
+    }
+
+    const date = luxon.DateTime.fromISO(value);
+
+    // Check if the date is valid
+    if (!date.isValid) {
+      console.error('Invalid date:', value);
+      return 'Invalid Date';
+    }
+
+    // Format the date using Luxon
+    const formattedDate = date.setLocale(locale).toLocaleString(luxon.DateTime.DATE_SHORT);
+
+    return formattedDate;
+  }
+
+  const timestamp = rawData;
+  console.log('Timestamp:', timestamp);
+  console.log('Formatted date:', formatMyDate(timestamp));
+</script>
+
+                {% endfor %}  
+
 </section>
 
     <section class="container-fluid background-isred" style="margin-top: 140px;">
