@@ -97,58 +97,9 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
     <h2 class="is-800px">Prochains événements,<span class="red"> toujours ouvert à tous..tes</span></h2>
     <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
     </div>
-    <div class="container-evenement hidden-mobile">
+    <div class="container-evenement hidden-mobile">{% include "layouts/event.njk" %}</div>
+ </section>
 
-    {% for evenement in evenements.data %}
-        <div class="border-box"></div>
-          <div class="number">{{ evenement.attributes.date }}</div>
-            <div class="date-location">
-              <span>{{ post.data.date }}<br/>à </span><span class="underline">{{ post.data.lieu }}</span>
-          </div>
-        <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
-        <div class="quote">{{ evenement.attributes.title }}</div> 
-        <div class="event-link">
-            <a href="/evenements/{{ evenement.id }}/" class="bouton secondary arrow-right">Voir l’événement</a>
-        </div> 
-    </div>  
-    <!-- Your Nunjucks template file, e.g., event.njk -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-  console.log('Script is running.');
-
-  // Define rawData without using let
-  var rawData = '{{ evenement.attributes.date }}';
-  console.log('Raw data:', rawData);
-
-  function formatMyDate(value, locale = 'en-GB') {
-    // Check if the value is empty or undefined
-    if (!value) {
-      console.error('Empty or undefined timestamp.');
-      return 'No Date Available';
-    }
-
-    const date = luxon.DateTime.fromISO(value);
-
-    // Check if the date is valid
-    if (!date.isValid) {
-      console.error('Invalid date:', value);
-      return 'Invalid Date';
-    }
-
-    // Format the date using Luxon
-    const formattedDate = date.setLocale(locale).toLocaleString(luxon.DateTime.DATE_SHORT);
-
-    return formattedDate;
-  }
-
-  const timestamp = rawData;
-  console.log('Timestamp:', timestamp);
-  console.log('Formatted date:', formatMyDate(timestamp));
-</script>
-
-                {% endfor %}  
-
-</section>
 
     <section class="container-fluid background-isred" style="margin-top: 140px;">
       <div class="container flex test">

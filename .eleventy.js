@@ -24,7 +24,8 @@ module.exports = eleventyConfig => {
   eleventyConfig.addWatchTarget("src/js/");
   eleventyConfig.addPlugin(EleventyI18nPlugin, {
     // any valid BCP 47-compatible language tag is supported
-    defaultLanguage: "fr", // Required, this site uses "en"
+    defaultLanguage: "fr",
+    locales: ["fr", "en"], // Required, this site uses "en"
   });
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath.endsWith('.html')) {

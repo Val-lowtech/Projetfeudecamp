@@ -1,0 +1,56 @@
+<!-- Load Luxon script in the head of your HTML document -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% for evenement in evenements_en.data %}
+{%- if loop.index <= 3 -%}
+  <div class="border-box">
+    <div id="dateStrapi{{ loop.index }}" class="number">
+      Le {{ evenement_en.attributes.date }}
+    </div> 
+    <div class="date-location">
+      <span>à </span><span class="underline">{{ evenement_en.attributes.title }}</span>
+    </div>
+    <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement_en.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
+    <div class="quote">{{ evenement_en.attributes.title }}</div> 
+    <div class="event-link">
+      <a href="/evenements/{{ evenement_en.title }}/" class="bouton secondary arrow-right">Voir l’événement</a>
+    </div> 
+  </div>  
+
+  <!-- Dynamic script for each element placed after the loop -->
+  <script>
+    console.log('Script is running.');
+
+    // Define rawData without using let
+    var rawData{{ loop.index }} = '{{ evenement.attributes.date }}';
+    console.log('Raw data:', rawData{{ loop.index }});
+
+    function formatMyDate(value, locale = 'en-GB') {
+      // Check if the value is empty or undefined
+      if (!value) {
+        console.error('Empty or undefined timestamp.');
+        return 'No Date Available';
+      }
+
+      const date = luxon.DateTime.fromISO(value);
+
+      // Check if the date is valid
+      if (!date.isValid) {
+        console.error('Invalid date:', value);
+        return 'Invalid Date';
+      }
+
+      // Format the date using Luxon
+      var luxonTimestamp = date.setLocale(locale).toLocaleString(luxon.DateTime.DATE_SHORT);
+
+      return luxonTimestamp;
+    }
+
+    // Get the element where you want to display the formatted date
+    var dateElement{{ loop.index }} = document.getElementById('dateStrapi{{ loop.index }}'); // Replace with the actual ID
+
+    // Set the innerHTML of the element with the formatted date
+    dateElement{{ loop.index }}.innerHTML = formatMyDate(rawData{{ loop.index }});
+  </script>
+   {%- endif -%}  
+{% endfor %}

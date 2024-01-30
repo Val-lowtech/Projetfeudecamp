@@ -2,7 +2,6 @@
 layout: layouts/base.njk
 title: "Accueil - Projet Feu de Camp"
 description: "Attiser les liens entre celleux qui portent le changement et celleux qui le racontent"
-locale: en
 ---
 
 <main>
@@ -18,104 +17,42 @@ locale: en
         <path d="M38.1378 67.4394L15.7313 45.033C15.5028 44.8044 15.3744 44.4944 15.3744 44.1712C15.3744 43.848 15.5028 43.538 15.7313 43.3094C15.9599 43.0809 16.2699 42.9524 16.5931 42.9524C16.9164 42.9524 17.2263 43.0809 17.4549 43.3094L37.7801 63.6346L37.7801 11.4233C37.7801 11.0999 37.9086 10.7897 38.1373 10.561C38.366 10.3324 38.6762 10.2039 38.9996 10.2039C39.323 10.2039 39.6331 10.3324 39.8618 10.561C40.0905 10.7897 40.219 11.0999 40.219 11.4233L40.219 63.6346L60.5442 43.3094C60.7728 43.0809 61.0828 42.9524 61.406 42.9524C61.7292 42.9524 62.0392 43.0809 62.2678 43.3094C62.4964 43.538 62.6248 43.848 62.6248 44.1712C62.6248 44.4944 62.4964 44.8044 62.2678 45.033L39.8614 67.4394C39.6328 67.668 39.3228 67.7964 38.9996 67.7964C38.6763 67.7964 38.3663 67.668 38.1378 67.4394Z" fill="#1C1C1C"/></svg>
       </div>
     </div>
-  </header> 
+  </header>  
 
 <section id="actions" class="container">
-  <h2 class="half">{{ accueil.data.attributes.h2 }}</span></h2> 
+  <h2 class="half">{{ accueil_en.data.attributes.h2 }}</span></h2> 
   <div class="container">
-
+{% for activite in activites.data %}
   <div class="fdc-actions">
     <div class="left">
-        <img class="icon" src="/assets/images/propaganda.svg"
-        alt="Propaganda icon" />
-        <p>{{ accueil.data.attributes.propaganda.titre_gauche }}</p>
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
+        <p>{{ activite.attributes.Nom }}</p>
     </div>
     <div class="right">
         <a href="propaganda">
         <div class="actions-description">
             <div>
-                <p class="is-dark">{{ accueil.data.attributes.propaganda.sous_titre_droite }}</p>
+                <p class="is-dark">{{ activite.attributes.courte_description }}</p>
             </div>
         </div>
         <div class="actions-titre">
-            <h4>{{ accueil.data.attributes.propaganda.h3_droite }}</h4> 
+            <h4>{{ activite.attributes.description }}</h4> 
             <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
         </div></a>
     </div>
   </div>
 
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/collectifeu.svg" 
-        alt="Propaganda icon" />
-        <p>{{ accueil.data.attributes.Collectifeu.titre_gauche }}</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">{{ accueil.data.attributes.Collectifeu.sous_titre_droite }}</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>{{ accueil.data.attributes.Collectifeu.h3_droite }}</h4> 
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre l'agenda </a> 
-        </div></a>
-    </div>
-</div>
-
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/flammeche.svg"
-        alt="Propaganda icon" />
-        <p>Flammèche</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">Expositions – Ateliers - Marchés - Entraide</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>Mettre en réseau les initatives engagées et créatives de Bruxelles déjà en place</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre des Flammèches dans ton quartier </a>
-        </div></a>
-    </div>
-</div>
-
-
-  <div class="fdc-actions">
-    <div class="left">
-        <img class="icon" src="/assets/images/etincelle.svg"
-        alt="Propaganda icon" />
-        <p>Etincelles</p>
-    </div>
-    <div class="right">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">Ressources créatives - Accompagnement - Formation  - & plus</p>
-            </div>
-        </div>
-        <div class="actions-titre">
-            <h4>Passez le flambeau à celleux qui veulent faire leurs propre chemin</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-        </div></a>
-    </div>
-</div>
-</section>
+ {% endfor %} 
+</section> 
 
 
   <section class="container section-about">
     <div class="section about inside">
         <img class="icon" src="/assets/images/logo-favicon.svg" alt="Propaganda icon" />
         <div>
-          <h3>{{ accueil.data.attributes.about.h3 }}</h3> 
+          <h3>{{ accueil_en.data.attributes.about.h3 }}</h3> 
         <div class="flex width-is-1000px">  
-          <p>{{ accueil.data.attributes.about.content }}</p>
+          <p>{{ accueil_en.data.attributes.about.content }}</p>
           <a href="#" class="bouton secondary arrow-right"> Apprends-en plus </a>
         </div>
         </div>
@@ -160,26 +97,13 @@ locale: en
     <h2 class="is-800px">Prochains événements,<span class="red"> toujours ouvert à tous..tes</span></h2>
     <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
     </div>
-    <div class="container-evenement">
-    {% for evenement in evenements.data %}
-        <div class="border-box"></div>
-        <div class="number">17</div>
-        <div class="date-location">
-            <span>{{ post.data.date }}<br/>à </span><span class="underline">{{ post.data.lieu }}</span>
-        </div>
-        <img src="/assets/images/event-1.jpg" alt="Placeholder Image" class="event-image" />
-        <div class="quote">{{ evenement.attributes.title }}</div>
-        <div class="event-link">
-            <a href="/evenements/{{ evenement.id }}/" class="bouton secondary arrow-right">Voir l’événement</a>
-        </div>
-    </div> 
-    {% endfor %} 
-           
-</section>
+    <div class="container-evenement hidden-mobile">{% include "layouts/event_en.njk" %}</div>
+ </section>
+
 
     <section class="container-fluid background-isred" style="margin-top: 140px;">
       <div class="container flex test">
-        <div>
+        <div class="section-infolettre">
         <h2 class="is-dark">Une infolettre max.<br> 1 fois par mois ! </h2>
           <div class="cta-links-container">
             <div>
@@ -201,7 +125,7 @@ locale: en
             <div class="project-container">
                 <div class="header-card">
                     <div class="title-container">
-                        <div class="project-title">{{ article.attributes.tags }}</div>
+                        <div class="project-title">{{ article_en.attributes.tags }}</div>
                     </div>
                     <div class="duration-container">
                         <div class="duration">{{ post.data.temps }}</div>
@@ -209,11 +133,11 @@ locale: en
                 </div>
                 <div class="content">
                     <div class="project-details">
-                        <div class="project-name">{{ article.attributes.title }}</div>
-                        <div class="project-description">{{ article.attributes.content }}</div>
+                        <div class="project-name">{{ article_en.attributes.title }}</div>
+                        <div class="project-description">{{ article_en.attributes.content }}</div>
                     </div>
                     <div class="read-more">
-                        <a href="/articles/{{ article.id }}/" class="bouton secondary arrow-right">lire l’article</a>
+                        <a href="/articles/{{ article_en.id }}/" class="bouton secondary arrow-right">lire l’article</a>
                     </div>
                 </div>
             </div>
