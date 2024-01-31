@@ -476,9 +476,9 @@ nav [role="button"] {
 }
 
 .number {
-    left: 102px;
+    left: 70px;
     top: 82px;
-    position: absolute;
+    position: relative;
     color: #EFEFEF;
     font-size: 38px;
     font-family: Adelphe;
@@ -488,7 +488,7 @@ nav [role="button"] {
 }
 
 .date-location {
-    left: 76px;
+    left: 70px;
     top: 139px;
     position: absolute;
     text-align: center;
@@ -507,12 +507,17 @@ nav [role="button"] {
     text-decoration: underline;
 }
 
-.event-image {
+.event-image-container { 
     width: 363px;
     height: 209px;
-    left: 255px;
+    left: 310px;
     top: 35px;
     position: absolute;
+    overflow: hidden;
+}
+
+.event-image {
+
 }
 
 .quote {

@@ -8,7 +8,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
 
   <header class="header is-red">
     <div class="container padding-top-240">
-      <h1>{{ accueil_en.data.attributes.Titre }}</h1>
+      <h1>{{ accueil.data.attributes.localizations.data[0].attributes.Titre }}</h1>
       <div class="button is-wrap">
         <a class="bouton primary arrow" href="#actions">Nos actions</a>
         <a class="bouton secondary arrow-right has-margin-top is-dark" href="/a-propos">Apprends-en plus sur le projet</a>
@@ -20,7 +20,8 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
   </header>  
 
 <section id="actions" class="container">
-  <h2 class="half">{{ accueil_en.data.attributes.h2 }}</span></h2> 
+  <h2 class="half">{{ accueil.data.attributes.localizations.data[0].attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}
+  </span></h2> 
   <div class="container">
 {% for activite in activites.data %}
   <div class="fdc-actions">

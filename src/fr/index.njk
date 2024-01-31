@@ -20,7 +20,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
   </header>  
 
 <section id="actions" class="container">
-  <h2 class="half">{{ accueil.data.attributes.h2 }}</span></h2> 
+  <h2 class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}</span></h2> 
   <div class="container">
 {% for activite in activites.data %}
   <div class="fdc-actions">
@@ -98,7 +98,7 @@ description: "Attiser les liens entre celleux qui portent le changement et celle
     <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
     </div>
     <div class="container-evenement hidden-mobile">{% include "layouts/event.njk" %}</div>
- </section>
+ </section> 
 
 
     <section class="container-fluid background-isred" style="margin-top: 140px;">

@@ -8,13 +8,15 @@
       Le {{ evenement.attributes.date }}
     </div> 
     <div class="date-location">
-      <span>à </span><span class="underline">{{ evenement.attributes.title }}</span>
+      <span>à </span><a href="{{ evenement.attributes.lieu[1].children[1].url }}" target="_blank" class="underline">{{ evenement.attributes.lieu[0].children[0].text }}</a>
     </div>
+    <div class="event-image-container">
     <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
+    </div>
     <div class="quote">{{ evenement.attributes.title }}</div> 
     <div class="event-link">
       <a href="/evenements/{{ evenement.title }}/" class="bouton secondary arrow-right">Voir l’événement</a>
-    </div> 
+    </div>  
   </div>  
 
   <!-- Dynamic script for each element placed after the loop -->
