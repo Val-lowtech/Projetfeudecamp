@@ -16,6 +16,7 @@ module.exports = eleventyConfig => {
     return DateTime.evenements(dateObj).toLocaleString(DateTime.DATE_MED);
   })
   eleventyConfig.setTemplateFormats(['njk']);
+  eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/assets/");
   eleventyConfig.addPassthroughCopy("src/css/");
   eleventyConfig.addPassthroughCopy("src/js/");
