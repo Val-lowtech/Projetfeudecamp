@@ -1,0 +1,153 @@
+---
+layout: layouts/base_01.njk
+title: "Accueil - Projet Feu de Camp"
+description: "Attiser les liens entre celleux qui portent le changement et celleux qui le racontent"
+---
+
+<main>
+
+  <header class="header is-red">
+    <div class="container padding-top-240">
+      <h1>{{ accueil.data.attributes.Titre }}</h1>
+      <div class="button is-wrap">
+        <a class="bouton primary arrow" href="#actions">Nos actions</a>
+        <a class="bouton secondary arrow-right has-margin-top is-dark" href="/a-propos">Apprends-en plus sur le projet</a>
+      </div>
+      <div class="fleche is-down"><svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78" fill="none">
+        <path d="M38.1378 67.4394L15.7313 45.033C15.5028 44.8044 15.3744 44.4944 15.3744 44.1712C15.3744 43.848 15.5028 43.538 15.7313 43.3094C15.9599 43.0809 16.2699 42.9524 16.5931 42.9524C16.9164 42.9524 17.2263 43.0809 17.4549 43.3094L37.7801 63.6346L37.7801 11.4233C37.7801 11.0999 37.9086 10.7897 38.1373 10.561C38.366 10.3324 38.6762 10.2039 38.9996 10.2039C39.323 10.2039 39.6331 10.3324 39.8618 10.561C40.0905 10.7897 40.219 11.0999 40.219 11.4233L40.219 63.6346L60.5442 43.3094C60.7728 43.0809 61.0828 42.9524 61.406 42.9524C61.7292 42.9524 62.0392 43.0809 62.2678 43.3094C62.4964 43.538 62.6248 43.848 62.6248 44.1712C62.6248 44.4944 62.4964 44.8044 62.2678 45.033L39.8614 67.4394C39.6328 67.668 39.3228 67.7964 38.9996 67.7964C38.6763 67.7964 38.3663 67.668 38.1378 67.4394Z" fill="#1C1C1C"/></svg>
+      </div>
+    </div>
+  </header>  
+
+<section id="actions" class="container">
+  <h2 class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}</span></h2> 
+  <div class="container">
+{% for activite in activites.data %}
+  <div class="fdc-actions">
+    <div class="left">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
+        <p>{{ activite.attributes.Nom }}</p>
+    </div>
+    <div class="right">
+        <a href="propaganda">
+        <div class="actions-description">
+            <div>
+                <p class="is-dark">{{ activite.attributes.courte_description }}</p>
+            </div>
+        </div>
+        <div class="actions-titre">
+            <h4>{{ activite.attributes.description }}</h4> 
+            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+        </div></a>
+    </div>
+  </div>
+
+ {% endfor %} 
+</section> 
+
+
+  <section class="container section-about">
+    <div class="section about inside">
+        <img class="icon" src="/assets/images/logo-favicon.svg" alt="Propaganda icon" />
+        <div>
+          <h3>{{ accueil.data.attributes.about.h3 }}</h3> 
+        <div class="flex width-is-1000px">  
+          <p>{{ accueil.data.attributes.about.content }}</p>
+          <a href="#" class="bouton secondary arrow-right"> Apprends-en plus </a>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="container-fluid background-isred" style="padding-bottom: 100px;">
+    <div class="container flex">
+      <div class="cta-left">
+      <h2 class="is-dark">Tu veux discuter ou lancer un projet avec nous? On est là!</h2>
+        <div class="cta-links-container">
+          <div class="flex no-min-width">
+            <div class="cta-link flex nospace-between">
+                <img class="icon" src="/assets/images/mail.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark">bxl@projetfeudecamp.be</p>
+            </div>
+            <div class="cta-link flex nospace-between">
+                <img class="icon" src="/assets/images/tel.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark">+32 491 14 00 86</p>
+            </div>
+           <p class="cta-link is-dark"></p>    
+          </div>
+          <div class="adresse">    
+            <div class="cta-link flex nospace-between">
+                <img class="icon" style="align-self: baseline" src="/assets/images/gps.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark" style="line-height: 130%;">Sur rendez-vous à l’Extension par Fais-le toi-même<br></be> <u>Rue Américaine 11b, 1060 Saint Gilles</u></p>
+            </div>         
+          </div>
+        </div>  
+      </div>  
+      <div class="img-right">    
+            <img class="image-cta" src="/assets/images/dither_it_2C9759AA-1A12-4237-9E4E-35E4F6FF9211_1_105_c.png" />
+        </div>
+    </div>
+  </section>
+
+  <section id="actions" class="container">
+    <div class="container flex">
+    <h2 class="is-800px">Prochains événements,<span class="red"> toujours ouvert à tous..tes</span></h2>
+    <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
+    </div>
+    <div class="container-evenement hidden-mobile">{% include "layouts/event.njk" %}</div>
+ </section> 
+
+
+    <section class="container-fluid background-isred" style="margin-top: 140px;">
+      <div class="container flex test">
+        <div class="section-infolettre">
+        <h2 class="is-dark">Une infolettre max.<br> 1 fois par mois ! </h2>
+          <div class="cta-links-container">
+            <div>
+             <p class="cta-link is-dark">On vous tient au courant des grands tournants du projet quand <br>il y en a.–Vos données ne sont pas partagées et hors GAFAM.</p>    
+          </div>  
+        </div>            
+              
+      </div>
+    </section>
+
+    <section id="actions" class="container">
+      <div class="container flex">
+      <h2 class="is-800px">L’actu, des trouvailles et <span class="red"> des récits brulants</span></h2>
+      <a href="#" class="bouton secondary arrow-ri©©ght"> Découvre tous les articles</a>
+      <div class=""></div></div>
+      <div class="grid margin-top-40">
+        {%- for article in articles.data -%}
+        {%- if loop.index <= 3 -%}
+            <div class="project-container">
+                <div class="header-card">
+                    <div class="title-container">
+                        <div class="project-title">{{ article.attributes.tags }}</div>
+                    </div>
+                    <div class="duration-container">
+                        <div class="duration">{{ post.data.temps }}</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="project-details">
+                        <div class="project-name">{{ article.attributes.title }}</div>
+                        <div class="project-description">{{ article.attributes.content }}</div>
+                    </div>
+                    <div class="read-more">
+                        <a href="/articles/{{ article.id }}/" class="bouton secondary arrow-right">lire l’article</a>
+                    </div>
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+    
+    </div>
+</div>
+      </section>
+
+  
+  
+</main>
