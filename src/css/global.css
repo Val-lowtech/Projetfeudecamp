@@ -335,6 +335,10 @@ nav [role="button"] {
     color: var(--blanc-fdc);
 }
 
+.fdc-actions .right.accordeons:not(:first-child){
+    margin-top: 20px;
+} 
+
 .fdc-actions .right:hover{
   /*  outline: solid 2px var(--blanc-fdc);
     transition: all 250ms;*/
