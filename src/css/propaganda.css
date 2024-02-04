@@ -7,3 +7,7 @@
 body{
     background-color: var(--rouge-fdc);
 }
+
+.nav-parent.is-dark {
+    background-color: var(--noir-fdc);
+}

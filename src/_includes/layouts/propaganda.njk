@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- {% include "basehead.njk" %}
- {% block head %}
-    
- {% endblock %}
- <script type="module" src="/js/main.js">
+ <link rel="stylesheet" href="/css/global.css">
+ <link rel="stylesheet" href="/css/propaganda.css">
+ <meta http-equiv="Content-Security-Policy" content="img-src 'self' https://backend-pfdc.jcloud.ik-server.com/"> 
+ <script type="module" src="/js/main.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js" integrity="sha512-kaDP6dcDG3+X87m9SnhyJzwBMKrYnd2tLJjGdBrZ9yEL8Zcl2iJRsPwylLkbd2g3QC5S8efV3sgwI5r73U0HnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <div class="nav-parent container-fluid hidden-mobile">
+    <div class="nav-parent is-dark container-fluid hidden-mobile">
         <nav class="container classformobile">
         <ul>
             <li div="logo"><a href="index.html" aria-label="Revenir à la page d'accueil">
@@ -393,8 +392,281 @@ window.onclick = function(event) {
   }
 } 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<main>
+<header class="header">
+    <div class="container gap-40">
+        <p class="subtitle is-red">{{ activites.data[1].attributes.courte_description }}</p>
+        <h2 class="title is-red">{{ activites.data[1].attributes.texte_entete[0].children[0].text }}</h2>
+        <p class="description is-red">{{ activites.data[1].attributes.texte_entete[1].children[0].text }}</p>
+        <div class="container cta-container">
+            <div class="cta-title bouton secondary arrow-right has-margin-top is-red">Découvre nos offres détaillées</div>
+        </div>
+    
+    <h3 class="margin-top-80 is-red">{{ activites.data[1].attributes.texte_en_dessous_header }}</div>
+    <div class="container grid logo-client margin-top-40">
+        <img src="/assets/images/collaborations/Cultureghem.svg"><img src="/assets/images/collaborations/FoodWin.svg"><img src="/assets/images/collaborations/horsentier.svg"></div>
+    <div class="container grid logo-client margin-top-40"><img src="/assets/images/collaborations/ped4all.svg"><img src="/assets/images/collaborations/Vub.svg"><img src="/assets/images/collaborations/Vub.svg"></div></div>
+</div></div>
+</header>   
+
+<section id="offre" class="container-fluid margin-top-80">
+<div class="container">
+  <h2 class="is-dark">{{ activites.data[1].attributes.zone_texte[0].children[0].text }}</h2>
+  <p class="margin-top-20">{{ activites.data[1].attributes.zone_texte[1].children[0].text }}</p>
+  <div class="container"> 
+  <div class="fdc-actions">
+    <div class="left"> 
+        <h3>{{ activites.data[1].attributes.titre_offre_1 }}</h3>
+    </div>
+    
+    <div class="right-a">
+        {% for collaboration in activites.data[1].attributes.Collaboration_et_accompagnement_Offres_test %}
+        <div class="right accordeons">
+            <details>
+            <summary class="accordeons">
+                <div class="left">
+                    <img class="icon" src="/assets/images/icon/propaganda.svg"
+                    alt="Propaganda icon" />
+                    <p>{{ collaboration.sur_titre }}</p>
+                </div>
+                <h3>{{ collaboration.h3 }}</h3>
+            </summary>
+            <div id="markdown-content"><mark>{{ collaboration.test }}</mark> </div>
+
+    <script>
+        // Your Markdown content
+        const markdownText = "{{ collaboration.test }}";
+
+        // Render Markdown to HTML
+        document.getElementById('markdown-content').innerHTML = marked(markdownText);
+    </script>
+                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            </details>
+        </div>
+        {% endfor %}
+    </div> 
+
+    
+    
+        </div>
+        <hr style="background-color: #0c0c0c;
+        height: 1px;
+        border: none;
+          border-top-color: currentcolor;
+          border-right-color: currentcolor;
+          border-bottom-color: currentcolor;
+          border-left-color: currentcolor;
+      margin-top: 40px;">
+        
+  </div>
+
+  <div class="container">
+    <div class="fdc-actions">
+      <div class="left">
+          <h3 style="min-width: 288px;">{{ activites.data[1].attributes.titre_offre_2 }}</h3>
+      </div>
+      <div class="right-a">
+        {% for collaboration in activites.data[1].attributes.Creation_et_lancement_de_projet_Offres %}
+        <div class="right accordeons">
+            <details> 
+            <summary class="accordeons">
+                <div class="left">
+                    <img class="icon" src="/assets/images/icon/propaganda.svg"
+                    alt="Propaganda icon" />
+                    <p>{{ collaboration.h3 }}</p>
+                </div>
+                <h3>{{ collaboration.h3 }}</h3>
+            </summary>
+                <h4>{{ collaboration.h3 }}</h4>
+                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            </details>
+        </div>
+        {% endfor %}
+    </div> 
+
+  
+</section>
+
+<section class="container-fluid background-isred" style="padding-bottom: 100px;">
+    <div class="container flex">
+      <div class="cta-left">
+      <h2 class="is-dark">Tu veux discuter ou lancer un projet avec nous? On est là!</h2>
+        <div class="cta-links-container">
+          <div class="flex no-min-width">
+            <div class="cta-link flex nospace-between">
+                <img class="icon" src="/assets/images/icon/mail.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark">bxl@projetfeudecamp.be</p>
+            </div>
+            <div class="cta-link flex nospace-between">
+                <img class="icon" src="/assets/images/icon/tel.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark">+32 491 14 00 86</p>
+            </div>
+           <p class="cta-link is-dark"></p>    
+          </div>
+          <div class="adresse">    
+            <div class="cta-link flex nospace-between">
+                <img class="icon" style="align-self: baseline" src="/assets/images/icon/gps.svg"
+                alt="Propaganda icon" />
+                <p class="cta-link is-dark" style="line-height: 130%;">Sur rendez-vous à l’Extension par Fais-le toi-même<br></be> <u>Rue Américaine 11b, 1060 Saint Gilles</u></p>
+            </div>         
+          </div>
+        </div>  
+      </div>  
+      <div class="img-right">    
+            <img class="image-cta" src="/assets/images/dither_it_2C9759AA-1A12-4237-9E4E-35E4F6FF9211_1_105_c.png" />
+        </div>
+    </div>
+  </section>
+
+ 
+
+  <section id="actions" class="container">
+    <div class="container">
+    <h2>{{ activites.data[1].attributes.H2 }}</h2>
+    <p class="margin-top-20">L’approche de projet Feu de Camp en 5 points</p>
+    </div>
+    {% for valeur in activites.data[1].attributes.valeurs_approches %}
+    <div class="fdc-actions margin-top-40">
+        <div class="left margin-top-40">
+            <h3 style="min-width: 288px;" class="is-red">{{ valeur.titre_gauche_1 }}</h3>
+        </div>
+        <div class="right accordeons margin-top-40">
+           <p>{{ valeur.texte_droite_1 }}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %} 
+          
+</section>
+
+<section>
+    <div class="container carousel-container">
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <p>"1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.""</p>
+                <div class="flex padding-20" style="justify-content: center;"> 
+                    <img src="/assets/images/collaborations/yannick.jpg" style="height: 56px;width:56; border-radius: 10px;align-self: center;" alt="Client 1 Image"><span class="client-name">Yannick, <br>Directeur chez Cultureghem VZW</span>
+                <div class="company-info">
+                    <img src="/assets/images/collaborations/Cultureghem.svg" alt="Company 1 Logo"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <p>"2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.""</p>
+                <div class="flex padding-20" style="justify-content: center;"> 
+                    <img src="/assets/images/collaborations/yannick.jpg" style="height: 56px;width:56; border-radius: 10px;align-self: center;" alt="Client 1 Image"><span class="client-name">Yannick, <br>Directeur chez Cultureghem VZW</span>
+                <div class="company-info">
+                    <img src="/assets/images/collaborations/Cultureghem.svg" alt="Company 1 Logo"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <p>"3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.""</p>
+                <div class="flex padding-20" style="justify-content: center;"> 
+                    <img src="/assets/images/collaborations/yannick.jpg" style="height: 56px;width:56; border-radius: 10px;align-self: center;" alt="Client 1 Image"><span class="client-name">Yannick, <br>Directeur chez Cultureghem VZW</span>
+                <div class="company-info">
+                    <img src="/assets/images/collaborations/Cultureghem.svg" alt="Company 1 Logo"></div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <p>"4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.""</p>
+                <div class="flex padding-20" style="justify-content: center;"> 
+                    <img src="/assets/images/collaborations/yannick.jpg" style="height: 56px;width:56; border-radius: 10px;align-self: center;" alt="Client 1 Image"><span class="client-name">Yannick, <br>Directeur chez Cultureghem VZW</span>
+                <div class="company-info">
+                    <img src="/assets/images/collaborations/Cultureghem.svg" alt="Company 1 Logo"></div>
+                </div>
+            </div>
+            <!-- Add more carousel items as needed -->
+        </div>
+        <button class="prev-button" onclick="changeSlide(-1)">❮</button>
+        <button class="next-button" onclick="changeSlide(1)">❯</button>
+    </div>
+    
+
+    <script>let currentIndex = 0;
+
+        function changeSlide(direction) {
+            const track = document.querySelector('.carousel-track');
+            const items = document.querySelectorAll('.carousel-item');
+            const itemWidth = items[0].offsetWidth + 20; // Including padding
+        
+            currentIndex = (currentIndex + direction + items.length) % items.length;
+            const translateValue = -currentIndex * itemWidth;
+        
+            track.style.transform = `translateX(${translateValue}px)`;
+        }
+        </script>
+</section>  
+
+    <section id="actions" class="container">
+      <div class="container flex">
+      <h2 class="is-800px">Exemple des derniers projets</h2>
+      <a href="#" class="bouton secondary arrow-right"> Découvre tous les projets</a>
+      <div class=""></div></div>
+      <div class="grid container-card">
+      <div class="project-container">
+        <div class="header-card">
+            <div class="title-container">
+                <div class="project-title">Projets passé</div>
+            </div>
+            <div class="duration-container">
+                <div class="duration">Lecture 5min</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="project-details">
+                <div class="project-name">Fais-le toi-même Festival</div>
+                <div class="project-description">Stratégie, branding et site internet</div>
+            </div>
+            <div class="read-more">
+                <div class="bouton secondary arrow-right">Voir le projet</div>
+            </div>
+        </div>
+    </div>
+    <div class="project-container">
+        <div class="header-card">
+            <div class="title-container">
+                <div class="project-title">Projets passé</div>
+            </div>
+            <div class="duration-container">
+                <div class="duration">Lecture 5min</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="project-details">
+                <div class="project-name">Positive Energy Disctrict for All</div>
+                <div class="project-description">Stratégie, branding et site internet</div>
+            </div>
+            <div class="read-more">
+                <div class="bouton secondary arrow-right">Voir le projet</div>
+            </div>
+        </div>
+    </div>
+    <div class="project-container">
+        <div class="header-card">
+            <div class="title-container">
+                <div class="project-title">Projets passé</div>
+            </div>
+            <div class="duration-container">
+                <div class="duration">Lecture 5min</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="project-details">
+                <div class="project-name">Cultureghem</div>
+                <div class="project-description">Stratégie, branding et site internet</div>
+            </div>
+            <div class="read-more">
+                <div class="bouton secondary arrow-right">voir le projet</div>
+            </div>
+        </div>
+    </div>
+</div>
+      </section>
+
+  
+  
+</main>
 
 
-</script>
-
-</html>

@@ -15,7 +15,11 @@ module.exports = eleventyConfig => {
   eleventyConfig.addFilter("postDate", (dateObj)=> {
     return DateTime.evenements(dateObj).toLocaleString(DateTime.DATE_MED);
   })
-  eleventyConfig.setTemplateFormats(['njk']);
+  eleventyConfig.addPairedShortcode("myShortcode", function(content) {
+    // Method A: ✅ This works fine
+    return content;
+});
+  eleventyConfig.setTemplateFormats( ["njk", "html", "liquid", "njk"]);
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/assets/");
   eleventyConfig.addPassthroughCopy("src/css/");
@@ -27,6 +31,13 @@ module.exports = eleventyConfig => {
     // any valid BCP 47-compatible language tag is supported
     defaultLanguage: "fr",
     locales: ["fr", "en"], // Required, this site uses "en"
+  });
+  eleventyConfig.addDataExtension('js', async (contents, outputPath) => {
+    if (outputPath.endsWith('/index.html')) {
+      const dataFunction = require(`.${outputPath}data`);
+      return dataFunction();
+    }
+    return {};
   });
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath.endsWith('.html')) {

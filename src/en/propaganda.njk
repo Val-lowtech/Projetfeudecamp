@@ -2,67 +2,57 @@
 layout: layouts/base.njk
 title: "Service de communication pour ASBL - Propaganda par Projet Feu de Camp"
 description: "Créer de l’engagement autour de la cause de celleux qui portent le changement"
+permalink: /en/propaganda/index.html
 ---
 
 <main>
 <header class="header">
     <div class="container gap-40">
-        <p class="subtitle is-red">PROPAGANDA - Conseil, Stratégie, Graphisme, Web, et Vidéo pour ASBL et initiatives engagées</p>
-        <h2 class="title is-red">Une façon de communiquer et d’engager votre public qui ressemble aux acteur..ices du changement.</h2>
-        <p class="description is-red">Vous pouvez être fièr..es des actions que vous menez, elles méritent une attention et un engouement à la hauteur de votre motivation. Nous savons que la “communication” est un sujet compliqué ou secondaire pour beaucoup d’associations. Pas le temps, pas le budget et parfois peu de compréhension des enjeux de son projet par les agences. C’est pourquoi nous vous proposons des services de stratégie, graphisme, web, video, prestations artistiques,etc qui sont totalement transparentes et adaptées à vos réalités.
-        <div class="container cta-container">
+        <p class="subtitle is-red">{{ activites.data[1].attributes.localizations.data[0].attributes.courte_description }}</p>
+        <h2 class="title is-red">{{ activites.data[1].attributes.localizations.data[0].attributes.texte_entete[0].children[0].text }}</h2>
+        <p class="description is-red">{{ activites.data[1].attributes.localizations.data[0].attributes.texte_entete[1].children[0].text }}</p>
+        <div class="container cta-container"> 
             <div class="cta-title bouton secondary arrow-right has-margin-top is-red">Découvre nos offres détaillées</div>
         </div>
     
-    <h3 class="margin-top-80 is-red">I..els nous font confiances</div>
+    <h3 class="margin-top-80 is-red">{{ activites.data[1].attributes.texte_en_dessous_header }}</div>
     <div class="container grid logo-client margin-top-40">
         <img src="/assets/images/collaborations/Cultureghem.svg"><img src="/assets/images/collaborations/FoodWin.svg"><img src="/assets/images/collaborations/horsentier.svg"></div>
     <div class="container grid logo-client margin-top-40"><img src="/assets/images/collaborations/ped4all.svg"><img src="/assets/images/collaborations/Vub.svg"><img src="/assets/images/collaborations/Vub.svg"></div></div>
 </div></div>
-</header>
+</header>   
 
 <section id="offre" class="container-fluid margin-top-80">
 <div class="container">
-  <h2 class="is-dark">Nos offres les <br>plus courantes</h2>
-  <p class="margin-top-20">Toutes nos offres sont à titre indicatif, modulables <br>et discutables si besoin.</p>
-  <div class="container">
+  <h2 class="is-dark">{{ activites.data[1].attributes.zone_texte[0].children[0].text }}</h2>
+  <p class="margin-top-20">{{ activites.data[1].attributes.zone_texte[1].children[0].text }}</p> 
+  <div class="container"> 
   <div class="fdc-actions">
     <div class="left">
-        <h3>Collaboration et accompagnement</h3>
+        <h3>{{ activites.data[1].attributes.titre_offre_1 }}</h3>
     </div>
-    <div class="right accordeons">
-        <summary class="accordeons">
-            <div class="left">
-                <img class="icon" src="/assets/images/icon/propaganda.svg"
-                alt="Propaganda icon" />
-                <p>Conseil</p>
-            </div>
-            <h3>Conseiller, débloquer et raviver</h3>
-        </summary>
-            <details>
-                <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-            </details>
-        </div>
-    </div>
-    <div class="fdc-actions">
-        <div class="left">
-            <h3 class="is-red hiddenonmobile">Collaboration et accompagnement</h3>
-        </div>
+    
+    <div class="right-a">
+        {% for collaboration in activites.data[1].attributes.Collaboration_et_accompagnement_Offres_test %}
         <div class="right accordeons">
             <summary class="accordeons">
                 <div class="left">
                     <img class="icon" src="/assets/images/icon/propaganda.svg"
                     alt="Propaganda icon" />
-                    <p>Renfort de communication</p>
+                    <p>{{ collaboration.sur_titre }}</p>
                 </div>
-                <h3>On devient un membre de votre équipe</h3>
+                <h3>{{ collaboration.h3 }}</h3>
             </summary>
-                <details>
-                    <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                    <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-                </details>
-            </div>
+            <details>
+                <h4>{{ collaboration.test }}</h4>
+                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            </details>
+        </div>
+        {% endfor %}
+    </div> 
+
+    
+    
         </div>
         <hr style="background-color: #0c0c0c;
         height: 1px;
@@ -78,81 +68,26 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
   <div class="container">
     <div class="fdc-actions">
       <div class="left">
-          <h3 style="min-width: 288px;">Création et lancement de projet</h3>
+          <h3 style="min-width: 288px;">{{ activites.data[1].attributes.titre_offre_2 }}</h3>
       </div>
-      <div class="right accordeons">
-          <summary class="accordeons">
-              <div class="left">
-                  <img class="icon" src="/assets/images/icon/propaganda.svg"
-                  alt="Propaganda icon" />
-                  <p>Lancement</p>
-              </div>
-              <h3>On lance votre nouveau projet avec vous</h3>
-          </summary>
-              <details>
-                  <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                  <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-              </details>
-          </div>
-      </div>
-      <div class="fdc-actions">
-          <div class="left">
-              <h3 class="is-red hiddenonmobile">Collaboration et accompagnement</h3>
-          </div>
-          <div class="right accordeons">
-              <summary class="accordeons">
-                  <div class="left">
-                      <img class="icon" src="/assets/images/icon/propaganda.svg"
-                      alt="Propaganda icon" />
-                      <p>Site web et outils digitaux</p>
-                  </div>
-                  <h3>Du web low-tech, simple et efficace</h3>
-              </summary>
-                  <details>
-                      <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                      <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-                  </details>
-              </div>
-          </div>     
-          <div class="fdc-actions">
-            <div class="left">
-                <h3 class="is-red hiddenonmobile">Collaboration et accompagnement</h3>
-            </div>
-            <div class="right accordeons">
-                <summary class="accordeons">
-                    <div class="left">
-                        <img class="icon" src="/assets/images/icon/propaganda.svg"
-                        alt="Propaganda icon" />
-                        <p>Stratégie de comm’ et identité visuelle</p>
-                    </div>
-                    <h3>Vous allez briller de milles feux</h3>
-                </summary>
-                    <details>
-                        <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                        <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-                    </details>
-                </div>
-            </div>    
-            <div class="fdc-actions">
+      <div class="right-a">
+        {% for collaboration in activites.data[1].attributes.Creation_et_lancement_de_projet_Offres %}
+        <div class="right accordeons">
+            <summary class="accordeons">
                 <div class="left">
-                    <h3 class="is-red hiddenonmobile">Collaboration et accompagnement</h3>
+                    <img class="icon" src="/assets/images/icon/propaganda.svg"
+                    alt="Propaganda icon" />
+                    <p>{{ collaboration.h3 }}</p>
                 </div>
-                <div class="right accordeons">
-                    <summary class="accordeons">
-                        <div class="left">
-                            <img class="icon" src="/assets/images/icon/propaganda.svg"
-                            alt="Propaganda icon" />
-                            <p>Vidéo</p>
-                        </div>
-                        <h3>On capture  </h3>
-                    </summary>
-                        <details>
-                            <h4>Créer de l’engagement autour de la cause de celleux qui portent le changement</h4>
-                            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-                        </details>
-                    </div>
-                </div>         
-    </div>
+                <h3>{{ collaboration.h3 }}</h3>
+            </summary>
+            <details>
+                <h4>{{ collaboration.h3 }}</h4>
+                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            </details>
+        </div>
+        {% endfor %}
+    </div> 
 
   
 </section>
@@ -194,55 +129,20 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
 
   <section id="actions" class="container">
     <div class="container">
-    <h2>Les start-ups veulent une agence de comm’ et de marketing, les ASBLs collaborent avec Propaganda.</h2>
+    <h2>{{ activites.data[1].attributes.H2 }}</h2>
     <p class="margin-top-20">L’approche de projet Feu de Camp en 5 points</p>
     </div>
+    {% for valeur in activites.data[1].attributes.valeurs_approches %}
     <div class="fdc-actions margin-top-40">
         <div class="left margin-top-40">
-            <h3 style="min-width: 288px;" class="is-red">Créatif..ves + Engagé..es + Pluridiscplinaire</h3>
+            <h3 style="min-width: 288px;" class="is-red">{{ valeur.titre_gauche_1 }}</h3>
         </div>
         <div class="right accordeons margin-top-40">
-           <p>Créer des messages forts pour une cause qui nous touchent, c’est ça qui donne du sens à notre travail. Et oui, on sait faire de la comm’ en passant de graphisme à web et de vidéo à stratégie mais vous pouvez aussi compter sur nous pour de l’illustration, théatre, poésie et autres disciplines artistiques. </p>
+           <p>{{ valeur.texte_droite_1 }}</p>
         </div>
     </div>
     <hr>
-    <div class="fdc-actions">
-        <div class="left margin-top-20">
-            <h3 style="min-width: 288px;" class="is-red">Local et dans le réel</h3>
-        </div>
-        <div class="right accordeons margin-top-20">
-           <p>Nous privilégions les vrais rencontres dans notre belle ville de Bruxelles et ses alentours. Vous serez sûrement obliger de voir nos petites têtes de visu avant de travailler ensemble. Les projets impersonnel où tout se fait par mail, non merci.</p>
-        </div>
-    </div>
-    <hr>
-    <div class="fdc-actions">
-        <div class="left margin-top-20">
-            <h3 style="min-width: 288px;" class="is-red">On comprend et soutient votre mission</h3>
-        </div>
-        <div class="right accordeons margin-top-20">
-           <p>Nous sommes sensibles au monde qui nous entoure et conscient des enjeux et de la complexité des luttes sociales et environnementales. Biensur, on est pas expert..es en tout mais avec nous il y aura moins de charge mental de devoir tout expliqué. </p>
-        </div>
-    </div>
-    <hr>
-    <div class="fdc-actions">
-        <div class="left margin-top-20">
-            <h3 style="min-width: 288px;" class="is-red">Complex ne veut pas dire compliqué</h3>
-        </div>
-        <div class="right accordeons margin-top-20">
-           <p>Beaucoup trop de communiquant veulent simplifier à l’extrême les messages mais quand on défend une cause social au lieu de vouloir juste vendre plus de bouteille de coca, la beauté se trouve parfois dans les nuances et le détails. </p>
-        </div>
-    </div>
-    <hr>
-    <div class="fdc-actions">
-        <div class="left margin-top-20">
-            <h3 style="min-width: 288px;" class="is-red">L’argent, pour nous, est moyen et non une fin</h3>
-        </div>
-        <div class="right accordeons margin-top-20">
-           <p>Avec nous, pas de négociation tendue ou de surprise dans la facture. Nous sommes transparent..es du début à la fin avec comme seul but: Vous aider tout en faisant tourner notre ASBL 
-        </p>
-        </div>
-    </div>
-    <hr>
+    {% endfor %} 
           
 </section>
 

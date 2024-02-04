@@ -4,6 +4,7 @@ title: "Service de communication pour ASBL - Propaganda par Projet Feu de Camp"
 description: "Créer de l’engagement autour de la cause de celleux qui portent le changement"
 ---
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <main>
 <header class="header">
     <div class="container gap-40">
@@ -27,29 +28,50 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
   <p class="margin-top-20">{{ activites.data[1].attributes.zone_texte[1].children[0].text }}</p>
   <div class="container"> 
   <div class="fdc-actions">
-    <div class="left">
+    <div class="left"> 
         <h3>{{ activites.data[1].attributes.titre_offre_1 }}</h3>
     </div>
     
     <div class="right-a">
         {% for collaboration in activites.data[1].attributes.Collaboration_et_accompagnement_Offres_test %}
-        <div class="right accordeons">
-            <summary class="accordeons">
-                <div class="left">
-                    <img class="icon" src="/assets/images/icon/propaganda.svg"
-                    alt="Propaganda icon" />
-                    <p>{{ collaboration.sur_titre }}</p>
-                </div>
-                <h3>{{ collaboration.h3 }}</h3>
-            </summary>
-            <details>
-                <h4>{{ collaboration.test }}</h4>
-                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-            </details>
-        </div>
+            <div class="right accordeons">
+                <details>
+                    <summary class="accordeons">
+                        <div class="left">
+                            <img class="icon" src="/assets/images/icon/propaganda.svg" alt="Propaganda icon" />
+                            <p>{{ collaboration.sur_titre }}</p>
+                        </div>
+                        <h3>{{ collaboration.h3 }}</h3>
+                    </summary>
+                    {% for contenu in collaboration.contenu %}
+                        {% if contenu.type == 'paragraph' %}
+                            {% if contenu.children[0].bold == true %}
+                                <p class="bold-style">{{ contenu.children[0].text }}</p>
+                            {% elseif contenu.children[0].underline == true %}
+                                <p class="underline-style">{{ contenu.children[0].text }}</p>
+                            {% elseif contenu.children[0].code == true %}
+                                <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
+                            {% else %} 
+                                <p>{{ contenu.children[0].text }}</p>
+                            {% endif %}
+                        {% elseif contenu.type == 'list' %}
+                            <ul class="list-style">
+                                {% for item in contenu.children %}
+                                    {% if item.type == 'list-item' %}
+                                        <li class="puce">{{ item.children[0].text }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                    <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+                </details>
+            </div>
         {% endfor %}
-    </div> 
-
+    </div>
+    
+       
+      
     
     
         </div>
@@ -72,6 +94,7 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
       <div class="right-a">
         {% for collaboration in activites.data[1].attributes.Creation_et_lancement_de_projet_Offres %}
         <div class="right accordeons">
+            <details> 
             <summary class="accordeons">
                 <div class="left">
                     <img class="icon" src="/assets/images/icon/propaganda.svg"
@@ -80,7 +103,6 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
                 </div>
                 <h3>{{ collaboration.h3 }}</h3>
             </summary>
-            <details>
                 <h4>{{ collaboration.h3 }}</h4>
                 <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
             </details>
