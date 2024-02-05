@@ -17,10 +17,10 @@ locale: en
     <div class="left">
         <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
         <p>{{ activite.attributes.Nom }}</p>
-    </div>
+    </div> 
     <div class="right">
         <a href="propaganda">
-        <div class="actions-description">
+        <div class="actions-description">  
             <div>
                 <p class="is-dark">{{ activite.attributes.courte_description }}</p>
             </div>
@@ -127,7 +127,7 @@ locale: en
                         <div class="project-description">{{ article_en.attributes.content }}</div>
                     </div>
                     <div class="read-more">
-                        <a href="/articles/{{ article_en.id }}/" class="bouton secondary arrow-right">lire l’article</a>
+                        <a href="articles/{{ article.attributes.title }}/" class="bouton secondary arrow-right">lire l’article</a>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
     <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement_en.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
     <div class="quote">{{ evenement_en.attributes.title }}</div> 
     <div class="event-link">
-      <a href="/evenements/{{ evenement_en.title }}/" class="bouton secondary arrow-right">Voir l’événement</a>
+      <a href="evenements/{{ evenement.attributes.title }}" class="bouton secondary arrow-right">See the event</a>
     </div> 
   </div>  
 
@@ -21,7 +21,7 @@
   <script>
     console.log('Script is running.');
 
-    // Define rawData without using let
+    // Define rawData without using let 
     var rawData{{ loop.index }} = '{{ evenement.attributes.date }}';
     console.log('Raw data:', rawData{{ loop.index }});
 

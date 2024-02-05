@@ -4,7 +4,7 @@ title: "Accueil - Projet Feu de Camp"
 description: "Attiser les liens entre celleux qui portent le changement et celleux qui le racontent"
 locale: fr-BE
 ---
-
+<meta http-equiv="Content-Security-Policy" content="img-src 'self' https://backend-pfdc.jcloud.ik-server.com/"> 
 <main>
   {% include "components/header.njk" %}
 <section id="actions" class="container">
@@ -17,8 +17,8 @@ locale: fr-BE
         <p>{{ activite.attributes.Nom }}</p>
     </div>
     <div class="right">
-        <a href="propaganda">
-        <div class="actions-description">
+        <a href="propaganda"> 
+        <div class="actions-description"> 
             <div>
                 <p class="is-dark">{{ activite.attributes.courte_description }}</p>
             </div>
@@ -27,7 +27,7 @@ locale: fr-BE
             <h4>{{ activite.attributes.description }}</h4> 
             <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
         </div></a>
-    </div>
+    </div> 
   </div>
 
  {% endfor %} 
@@ -108,7 +108,7 @@ locale: fr-BE
       <a href="#" class="bouton secondary arrow-ri©©ght"> Découvre tous les articles</a>
       <div class=""></div></div>
       <div class="grid margin-top-40">
-        {%- for article in articles.data -%}
+        {%- for article in articles.data -%} 
         {%- if loop.index <= 3 -%}
             <div class="project-container">
                 <div class="header-card">
@@ -116,7 +116,7 @@ locale: fr-BE
                         <div class="project-title">{{ article.attributes.tags }}</div>
                     </div>
                     <div class="duration-container">
-                        <div class="duration">{{ post.data.temps }}</div>
+                        <div class="duration">{{ post.data.temps }}</div> 
                     </div>
                 </div>
                 <div class="content">
@@ -125,8 +125,8 @@ locale: fr-BE
                         <div class="project-description">{{ article.attributes.content }}</div>
                     </div>
                     <div class="read-more">
-                        <a href="/articles/{{ article.id }}/" class="bouton secondary arrow-right">lire l’article</a>
-                    </div>
+                        <a href="articles/{{ article.attributes.title }}" class="bouton secondary arrow-right">lire l’article</a>
+                    </div> 
                 </div>
             </div>
         {%- endif -%}

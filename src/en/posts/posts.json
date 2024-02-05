@@ -1,5 +1,5 @@
 {
     "layout": "layouts/base.html",
-    "tags": "evenement",
+    "tags": "posts",
     "locale": "en"
 }

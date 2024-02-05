@@ -2,16 +2,14 @@
 layout: layouts/base.njk
 title: "Accueil - Projet Feu de Camp"
 description: "Le Projet Feu de Camp imagine un nouveau monde désirable"
+locale: "be-fr"
 ---
 
 <main>
 <header class="header is-red">
   <div class="container padding-top-240">
-    <p class="is-dark">Le Projet Feu de Camp imagine un nouveau monde désirable</p>
-    <h2 class="is-dark" style="padding-bottom: 40px;">Dansons le changement,
-        Chantons la révolution et
-        Peignons un monde nouveau.
-        Rendons la révolution irrésistible!</h2>
+    <p class="is-dark">{{ about.data.attributes.sur-titre }}</p>
+    <h2 class="is-dark" style="padding-bottom: 40px;">{{ about.data.attributes.titre }}</h2>
       <div class="button is-wrap">
         <a class="bouton primary arrow" href="#actions">En apprendre plus</a>
         <a class="bouton secondary arrow-right has-margin-top is-dark" href="#">Nos Valeurs</a>
@@ -44,13 +42,13 @@ description: "Le Projet Feu de Camp imagine un nouveau monde désirable"
   <div class="container">
   <div class="fdc-actions">
     <div class="left">
-        <p style="min-width: 288px;">Convictions</p>
+        <p style="min-width: 288px;">{{ about.data.attributes.conviction }}</p>
     </div>
     <div class="right about">
         <a href="propaganda">
         <div class="actions-titre is-white">
-            <h4>Convaincu que ce monde doit être transmis dans l’imaginaire et le coeur des gens par des récits puissant et inspirant qui poussent à l’action.</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            <h4>{{ about.data.attributes.conviction-contenu }}</h4>
+            <a href="{{ about.data.attributes.conviction_cta_link }}" class="bouton secondary arrow-right is-dark">{{ about.data.attributes.conviction_cta }} </a>
         </div></a>
     </div>
   </div>
@@ -58,15 +56,13 @@ description: "Le Projet Feu de Camp imagine un nouveau monde désirable"
 
   <div class="fdc-actions">
     <div class="left">
-        <p style="min-width: 288px;">Notre Mission</p>
+        <p style="min-width: 288px;">{{ about.data.attributes.mission }}</p>
     </div>
     <div class="right about">
         <a href="#">
         <div class="actions-titre is-white">
-            <h4>Créer et attiser les liens entre celleux qui portent le changement et celle·ux qui le racontent.<br><br>
-
-                Pour, ensemble, pousser à l’action et écrire les premiers chapitres d’un monde soutenable et désirable </h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre l'agenda </a>
+            <h4>{{ about.data.attributes.mission_contenu }}</h4>
+            <a href="{{ about.data.attributes.mission_cta_link }}" class="bouton secondary arrow-right is-dark">{{ about.data.attributes.mission_cta }}</a>
         </div></a>
     </div>
 </div>

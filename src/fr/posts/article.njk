@@ -1,11 +1,12 @@
 ---
 title: Article
 layout: layouts/base.njk
+locale: "fr-be"
 pagination:
   data: articles.data
   size: 1
   alias: article
-permalink: 'articles/{{ article.attributes.title }}/'
+permalink: 'fr/articles/{{ article.attributes.title }}/'
 ---
 
 <main>
@@ -18,9 +19,29 @@ permalink: 'articles/{{ article.attributes.title }}/'
   </div>
 </header>
 
-<section class="container">
-  <div class="container"> 
-    <p>{{ article.attributes.content }}</p>
+<section class="container">  
+  <div class="container max-600"> 
+    {% for contenu in article.attributes.contenu %} 
+    {% if contenu.type == 'paragraph' %}
+        {% if contenu.children[0].bold == true %}
+            <p class="bold-style">{{ contenu.children[0].text }}</p>
+        {% elseif contenu.children[0].underline == true %}
+            <p class="underline-style">{{ contenu.children[0].text }}</p>
+        {% elseif contenu.children[0].code == true %}
+            <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
+        {% else %} 
+            <p>{{ contenu.children[0].text }}</p>
+        {% endif %}
+    {% elseif contenu.type == 'list' %}
+        <ul class="list-style">
+            {% for item in contenu.children %}
+                {% if item.type == 'list-item' %}
+                    <li class="puce">{{ item.children[0].text }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %}
   </div>
 </main>
 

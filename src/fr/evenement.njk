@@ -2,7 +2,7 @@
 title: Evenement
 layout: layouts/base.njk
 img: {{ evenenents.attributes.img }}
-permalink: '/fr/evenements/{{ evenement.attributes.description }}'
+permalink: '/fr/evenements/{{ evenement.attributes.title }}'
 pagination:
   data: evenements.data
   size: 1
@@ -27,6 +27,30 @@ pagination:
 <section class="container">
   <div class="container">
     <p>{{ evenement.attributes.description }}</p>
+  </div>
+
+    <div class="container"> 
+    {% for contenu in evenements.attributes.content %}
+    {% if content.type == 'paragraph' %}
+        {% if content.children[0].bold == true %}
+            <p class="bold-style">{{ content.children[0].text }}</p>
+        {% elseif content.children[0].underline == true %}
+            <p class="underline-style">{{ content.children[0].text }}</p>
+        {% elseif content.children[0].code == true %}
+            <p class="code-style underline-style">{{ content.children[0].text }}</p>
+        {% else %} 
+            <p>{{ content.children[0].text }}</p>
+        {% endif %}
+    {% elseif content.type == 'list' %}
+        <ul class="list-style">
+            {% for item in content.children %}
+                {% if item.type == 'list-item' %}
+                    <li class="puce">{{ item.children[0].text }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %}
   </div>
 </main>
 

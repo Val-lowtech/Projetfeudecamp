@@ -1,0 +1,5 @@
+{
+    "layout": "layouts/base.html",
+    "tags": "posts",
+    "locale": "be-fr"
+}
