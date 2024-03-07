@@ -5,7 +5,7 @@
 {%- if loop.index <= 3 -%}
   <div class="border-box">
     <div id="dateStrapi{{ loop.index }}" class="number">
-      Le {{ evenement.attributes.date }}
+      {{ evenement.attributes.date | postDate }}
     </div> 
     <div class="date-location">
       <span>à </span><a href="{{ evenement.attributes.lieu[1].children[1].url }}" target="_blank" class="underline">{{ evenement.attributes.lieu[0].children[0].text }}</a>
@@ -14,13 +14,13 @@
     <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
     </div>
     <div class="quote">{{ evenement.attributes.title }}</div> 
-    <div class="event-link">
+    <div class="event-link"> 
       <a href="evenements/{{ evenement.attributes.title }}" class="bouton secondary arrow-right">Voir l’événement</a>
     </div>  
   </div>  
 
   <!-- Dynamic script for each element placed after the loop -->
-  <script>
+  <!-- <script>
     console.log('Script is running.');
 
     // Define rawData without using let
@@ -53,6 +53,6 @@
 
     // Set the innerHTML of the element with the formatted date
     dateElement{{ loop.index }}.innerHTML = formatMyDate(rawData{{ loop.index }});
-  </script>
+  </script> -->
    {%- endif -%}  
 {% endfor %}

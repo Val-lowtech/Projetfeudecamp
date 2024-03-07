@@ -38,7 +38,7 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
                 <details>
                     <summary class="accordeons">
                         <div class="left">
-                            <img class="icon" src="/assets/images/icon/propaganda.svg" alt="Propaganda icon" />
+                            <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ collaboration.attributes.picto.data.attributes.url }}" alt="Propaganda icon" />
                             <p>{{ collaboration.sur_titre }}</p>
                         </div>
                         <h3>{{ collaboration.h3 }}</h3>
@@ -113,38 +113,7 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
   
 </section>
 
-<section class="container-fluid background-isred" style="padding-bottom: 100px;">
-    <div class="container flex">
-      <div class="cta-left">
-      <h2 class="is-dark">Tu veux discuter ou lancer un projet avec nous? On est là!</h2>
-        <div class="cta-links-container">
-          <div class="flex no-min-width">
-            <div class="cta-link flex nospace-between">
-                <img class="icon" src="/assets/images/icon/mail.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark">bxl@projetfeudecamp.be</p>
-            </div>
-            <div class="cta-link flex nospace-between">
-                <img class="icon" src="/assets/images/icon/tel.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark">+32 491 14 00 86</p>
-            </div>
-           <p class="cta-link is-dark"></p>    
-          </div>
-          <div class="adresse">    
-            <div class="cta-link flex nospace-between">
-                <img class="icon" style="align-self: baseline" src="/assets/images/icon/gps.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark" style="line-height: 130%;">Sur rendez-vous à l’Extension par Fais-le toi-même<br></be> <u>Rue Américaine 11b, 1060 Saint Gilles</u></p>
-            </div>         
-          </div>
-        </div>  
-      </div>  
-      <div class="img-right">    
-            <img class="image-cta" src="/assets/images/dither_it_2C9759AA-1A12-4237-9E4E-35E4F6FF9211_1_105_c.png" />
-        </div>
-    </div>
-  </section>
+{% include "components/tu-veux-en-discuter.njk" %}
 
  
 

@@ -2,24 +2,26 @@ const HtmlMin = require('html-minifier');
 const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const { DateTime } = require("luxon");
 
+module.exports = function (eleventyConfig) {
 
-module.exports = function (config) {
-  config.addFilter("asPostDate", (dateObj) => {
-   return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  eleventyConfig.addFilter("postDate", (dateString) => {
+    // Parse the Strapi date string into a Luxon DateTime object
+    const luxonDate = DateTime.fromFormat(dateString, "yyyy-MM-dd", { locale: "fr" });
 
-    // other config likely here
+    // Check if the date is valid before attempting to format it
+    if (!luxonDate.isValid) {
+      return "Invalid Date";
+    }
+
+    // Format the date using Luxon
+    return luxonDate.toLocaleString(DateTime.DATE_MED);
   });
-}
 
-module.exports = eleventyConfig => {
-  eleventyConfig.addFilter("postDate", (dateObj)=> {
-    return DateTime.evenements(dateObj).toLocaleString(DateTime.DATE_MED);
-  })
   eleventyConfig.addPairedShortcode("myShortcode", function(content) {
-    // Method A: ✅ This works fine
     return content;
-});
-  eleventyConfig.setTemplateFormats( ["njk", "html", "liquid", "njk"]);
+  });
+
+  eleventyConfig.setTemplateFormats(["njk", "html", "liquid", "njk"]);
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/assets/");
   eleventyConfig.addPassthroughCopy("src/css/");
@@ -27,11 +29,12 @@ module.exports = eleventyConfig => {
   eleventyConfig.addWatchTarget('src/_data/');
   eleventyConfig.addWatchTarget("src/css/");
   eleventyConfig.addWatchTarget("src/js/");
+
   eleventyConfig.addPlugin(EleventyI18nPlugin, {
-    // any valid BCP 47-compatible language tag is supported
     defaultLanguage: "fr",
-    locales: ["fr", "en"], // Required, this site uses "en"
+    locales: ["fr", "en"],
   });
+
   eleventyConfig.addDataExtension('js', async (contents, outputPath) => {
     if (outputPath.endsWith('/index.html')) {
       const dataFunction = require(`.${outputPath}data`);
@@ -39,6 +42,7 @@ module.exports = eleventyConfig => {
     }
     return {};
   });
+
   eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
     if (outputPath.endsWith('.html')) {
       let minified = HtmlMin.minify(content, {
@@ -50,6 +54,7 @@ module.exports = eleventyConfig => {
     }
     return content;
   });
+
   return {
     dir: {
       input: 'src',

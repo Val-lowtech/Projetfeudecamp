@@ -1,11 +1,11 @@
 <header class="header is-red">
   <div class="container padding-top-240">
     {% if locale == 'fr-BE' %}
-      <h1>{{ accueil.data.attributes.Titre }}</h1>
+      <h1 data-scroll>{{ accueil.data.attributes.Titre }}</h1>
     {% elif locale == 'en' %}
-      <h1>{{ accueil.data.attributes.localizations.data[0].attributes.Titre }}</h1>
+      <h1 data-scroll>{{ accueil.data.attributes.localizations.data[0].attributes.Titre }}</h1>
     {% endif %}
-    <div class="button is-wrap">
+    <div data-scroll class="button is-wrap">
       <a class="bouton primary arrow" href="#actions">Nos actions</a>
       <a class="bouton secondary arrow-right has-margin-top is-dark" href="/a-propos">Apprends-en plus sur le projet</a>
     </div>

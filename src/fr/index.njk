@@ -8,15 +8,15 @@ locale: fr-BE
 <main>
   {% include "components/header.njk" %}
 <section id="actions" class="container">
-  <h2 class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}</span></h2> 
-  <div class="container">
+  <h2 data-scroll class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}</span></h2> 
+  <div data-scroll class="container">
 {% for activite in activites.data %}
-  <div class="fdc-actions">
-    <div class="left">
+  <div data-scroll class="fdc-actions">
+    <div data-scroll class="left">
         <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
         <p>{{ activite.attributes.Nom }}</p>
     </div>
-    <div class="right">
+    <div data-scroll class="right">
         <a href="propaganda"> 
         <div class="actions-description"> 
             <div>
@@ -29,7 +29,6 @@ locale: fr-BE
         </div></a>
     </div> 
   </div>
-
  {% endfor %} 
 </section> 
 
@@ -47,38 +46,8 @@ locale: fr-BE
     </div>
   </section>
 
-  <section class="container-fluid background-isred" style="padding-bottom: 100px;">
-    <div class="container flex">
-      <div class="cta-left">
-      <h2 class="is-dark">Tu veux discuter ou lancer un projet avec nous? On est là!</h2>
-        <div class="cta-links-container">
-          <div class="flex no-min-width">
-            <div class="cta-link flex nospace-between">
-                <img class="icon" src="/assets/images/mail.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark">bxl@projetfeudecamp.be</p>
-            </div>
-            <div class="cta-link flex nospace-between">
-                <img class="icon" src="/assets/images/tel.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark">+32 491 14 00 86</p>
-            </div>
-           <p class="cta-link is-dark"></p>    
-          </div>
-          <div class="adresse">    
-            <div class="cta-link flex nospace-between">
-                <img class="icon" style="align-self: baseline" src="/assets/images/gps.svg"
-                alt="Propaganda icon" />
-                <p class="cta-link is-dark" style="line-height: 130%;">Sur rendez-vous à l’Extension par Fais-le toi-même<br></be> <u>Rue Américaine 11b, 1060 Saint Gilles</u></p>
-            </div>         
-          </div>
-        </div>  
-      </div>  
-      <div class="img-right">    
-            <img class="image-cta" src="/assets/images/dither_it_2C9759AA-1A12-4237-9E4E-35E4F6FF9211_1_105_c.png" />
-        </div>
-    </div>
-  </section> 
+  {% include "components/tu-veux-en-discuter.njk" %}
+  
 
   <section id="actions" class="container">
     <div class="container flex">
