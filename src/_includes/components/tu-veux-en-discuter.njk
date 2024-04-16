@@ -9,10 +9,10 @@
                 alt="Propaganda icon" />
                 <p class="cta-link is-dark">{{ accueil.data.attributes.cta_contact.Mail }}</p>
             </div>
-            <div class="cta-link flex nospace-between">
+            <div class="link cta-link flex nospace-between">
                 <img class="icon" src="/assets/images/tel.svg"
                 alt="Propaganda icon" />
-                <p class="cta-link is-dark">{{ accueil.data.attributes.cta_contact.Gsm }}</p>
+                <p class="cta-link is-dark">{{ accueil.data.attributes.cta_contact.Gsm }}<br>{{ accueil.data.attributes.cta_contact.Gsm }}</p><br>
             </div>
            <p class="cta-link is-dark"></p>    
           </div>
@@ -20,7 +20,7 @@
             <div class="cta-link flex nospace-between">
                 <img class="icon" style="align-self: baseline" src="/assets/images/gps.svg"
                 alt="Propaganda icon" />
-                <p class="cta-link is-dark" style="line-height: 130%;">Sur rendez-vous à {{ accueil.data.attributes.cta_contact.Localisation }}</u></p>
+                <p class="link-external cta-link is-dark" style="line-height: 130%; display: inherit;"><a style="color: black!important;" href="https://www.openstreetmap.org/way/22734665#map=20/50.82440/4.35525&layers=TN" target="_blank">Sur rendez-vous à {{ accueil.data.attributes.cta_contact.Localisation }}</a></u></p>
             </div>         
           </div>
         </div>  

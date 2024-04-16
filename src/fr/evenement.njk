@@ -2,7 +2,7 @@
 title: Evenement
 layout: layouts/base.njk
 img: {{ evenenents.attributes.img }}
-permalink: '/fr/evenements/{{ evenement.attributes.title }}'
+permalink: '/fr/evenements/{{ evenement.attributes.slug }}'
 pagination:
   data: evenements.data
   size: 1
@@ -10,70 +10,63 @@ pagination:
 ---
 
 <main>
-<header class="header is-red">
+<header class="header is-red" style="min-height: 60vh!important;">
   <div class="container padding-top-240">
     <h2 class="is-dark" style="padding-bottom: 40px;">{{ evenement.attributes.title }}</h2><br>
-    <p> {{ evenement.attributes.date | postDate }}</p><br>
       <div class="fleche is-down"><svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78" fill="none">
         <path d="M38.1378 67.4394L15.7313 45.033C15.5028 44.8044 15.3744 44.4944 15.3744 44.1712C15.3744 43.848 15.5028 43.538 15.7313 43.3094C15.9599 43.0809 16.2699 42.9524 16.5931 42.9524C16.9164 42.9524 17.2263 43.0809 17.4549 43.3094L37.7801 63.6346L37.7801 11.4233C37.7801 11.0999 37.9086 10.7897 38.1373 10.561C38.366 10.3324 38.6762 10.2039 38.9996 10.2039C39.323 10.2039 39.6331 10.3324 39.8618 10.561C40.0905 10.7897 40.219 11.0999 40.219 11.4233L40.219 63.6346L60.5442 43.3094C60.7728 43.0809 61.0828 42.9524 61.406 42.9524C61.7292 42.9524 62.0392 43.0809 62.2678 43.3094C62.4964 43.538 62.6248 43.848 62.6248 44.1712C62.6248 44.4944 62.4964 44.8044 62.2678 45.033L39.8614 67.4394C39.6328 67.668 39.3228 67.7964 38.9996 67.7964C38.6763 67.7964 38.3663 67.668 38.1378 67.4394Z" fill="#1C1C1C"/></svg>
       </div>
   </div>
 </header> 
 
-<section id="actions" class="container">
-  <div data-scroll class="container">
-  <div data-scroll class="">
-    <div data-scroll class="left flex-column">
-      <div>
-        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
-        <p class="tag">{{ evenement.attributes.date }}</p>
+<section class="container">  
+  <div class="fdc-actions">
+    <div class="left" style="min-width: 280px;flex-direction: column;">
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/Lieu_e8647831f9.svg" alt="Auteurice" />
+        <a href="{{ evenement.attributes.Lieu_lien }}" target="_blank"><p class="metadata">{{ evenement.attributes.Lieu }}</p></a>
       </div>
-      <div>
-      <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
-      <p class="tag">{{ evenement.attributes.lieu }}</p>
-    </div>
-    <div>
-    <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
-    <a href="{{ evenement.attributes.EvenementFacebook }}"><p class="tag">Lien de l'événement Facebook</p></a>
-  </div>
-  </div>
-</div>
-    <div data-scroll class="right event">
-      {% for content in evenement.attributes.content %} 
-      {% if content.type == 'paragraph' %}
-          {% if content.children[0].bold == true %}
-              <p class="bold-style">{{ content.children[0].text }}</p>
-          {% elseif content.children[0].underline == true %}
-              <p class="underline-style">{{ content.children[0].text }}</p>
-          {% elseif content.children[0].code == true %}
-              <p class="code-style underline-style">{{ content.children[0].text }}</p>
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/ical_2d2e09300b.svg" alt="iCal" />
+        <p class="metadata">{{ evenement.attributes.date | postDate }}</p>
+      </div>
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/lien_utile_fe0a607efb.svg" alt="liens" />
+        <a href="{{ evenement.attributes.EvenementFacebook }}" target="_blank"><p class="metadata">Lien de l'événement Facebook</p></a>
+      </div>
+    </div> 
+    <div class="article">
+      {% for contenu in evenement.attributes.content %} 
+      {% if contenu.type == 'paragraph' %}
+          {% if contenu.children[0].bold == true %}
+              <p class="bold-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].underline == true %}
+              <p class="underline-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].code == true %}
+              <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
           {% else %} 
-              <p>{{ content.children[0].text }}</p>
+              <p>{{ contenu.children[0].text }}</p>
           {% endif %}
-      {% elseif content.type == 'list' %}
+          
+     {% elseif contenu.type == 'list' %}
           <ul class="list-style">
-              {% for item in content.children %}
+              {% for item in contenu.children %}
                   {% if item.type == 'list-item' %}
                       <li class="puce">{{ item.children[0].text }}</li>
                   {% endif %}
               {% endfor %}
           </ul>
+          {% elif contenu.type == 'heading' and contenu.level == 3 %}
+     <h3 style="padding-top:0px;line-height: 120%!important">{{ contenu.children[0].text }}</h3>
+     {% elif contenu.type == 'heading' and contenu.level == 2 %}
+     <h2 style="line-height: 120%!important">{{ contenu.children[0].text }}</h2>
+     {% elif contenu.type == 'heading' and contenu.level == 4 %}
+     <h4 style="padding-top:40px;padding-bottom:15px; 120%!important">{{ contenu.children[0].text }}</h4>
+     {% elif contenu.type == 'image' %}
+     <img src="{{ contenu.image.url}}"">
       {% endif %}
   {% endfor %}
-    </div> 
-  </div>
-</section> 
-
-<section class="container">
-  <div class="fdc-actions">
-    <div class="left noflex">
-        <p>C'est quand? <br>{{ evenement.attributes.date }}</p><br>
-        <p>C'est où?<br>{{ evenement.attributes.lieu }}</p><br>
-        <a href="{{ evenement.attributes.EvenementFacebook }}"><p>Tu participes?</p></a>
     </div>
-    <div class="right evenement">
-     
-    </div> 
-  </div>
+
 </main>
 

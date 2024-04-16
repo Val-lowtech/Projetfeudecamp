@@ -6,7 +6,7 @@ pagination:
   data: articles.data
   size: 1
   alias: article
-permalink: 'fr/articles/{{ article.attributes.title }}/'
+permalink: 'fr/articles/{{ article.attributes.Slug }}/'
 ---
 
 <main>
@@ -20,28 +20,59 @@ permalink: 'fr/articles/{{ article.attributes.title }}/'
 </header>
 
 <section class="container">  
+  <div class="fdc-actions">
+    <div class="left" style="min-width: 280px;flex-direction: column;">
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/icon_tag_05245df72c.svg" alt="tags" />
+        <p class="metadata">{{ article.attributes.tags.data[0].attributes.name }}</p>
+      </div>
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/auteur_f5fead90d2.svg" alt="Auteurice" />
+        <p class="metadata">{{ article.attributes.author }}</p>
+      </div>
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/ical_2d2e09300b.svg" alt="iCal" />
+        <p class="metadata">{{ article.attributes.date | postDate }}</p>
+      </div>
+      <div class="flex">
+        <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com/uploads/lien_utile_fe0a607efb.svg" alt="liens" />
+        <p class="metadata">{{ article.attributes.liens }}</p>
+      </div>
+    </div> 
+    <div class="article">
+      {% for contenu in article.attributes.contenu %} 
+      {% if contenu.type == 'paragraph' %}
+          {% if contenu.children[0].bold == true %}
+              <p class="bold-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].underline == true %}
+              <p class="underline-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].code == true %}
+              <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
+          {% else %} 
+              <p>{{ contenu.children[0].text }}</p>
+          {% endif %}
+          
+     {% elseif contenu.type == 'list' %}
+          <ul class="list-style">
+              {% for item in contenu.children %}
+                  {% if item.type == 'list-item' %}
+                      <li class="puce">{{ item.children[0].text }}</li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+          {% elif contenu.type == 'heading' and contenu.level == 3 %}
+     <h3 style="padding-top:30px!important;line-height: 120%!important">{{ contenu.children[0].text }}</h3>
+     {% elif contenu.type == 'heading' and contenu.level == 2 %}
+     <h2 style="line-height: 120%!important">{{ contenu.children[0].text }}</h2>
+     {% elif contenu.type == 'heading' and contenu.level == 4 %}
+     <h4 style="padding-top:30px;line-height: 120%!important">{{ contenu.children[0].text }}</h4>
+     {% elif contenu.type == 'image' %}
+     <img src="{{ contenu.image.url}}"">
+      {% endif %}
+  {% endfor %}
+    </div>
   <div class="container max-600"> 
-    {% for contenu in article.attributes.contenu %} 
-    {% if contenu.type == 'paragraph' %}
-        {% if contenu.children[0].bold == true %}
-            <p class="bold-style">{{ contenu.children[0].text }}</p>
-        {% elseif contenu.children[0].underline == true %}
-            <p class="underline-style">{{ contenu.children[0].text }}</p>
-        {% elseif contenu.children[0].code == true %}
-            <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
-        {% else %} 
-            <p>{{ contenu.children[0].text }}</p>
-        {% endif %}
-    {% elseif contenu.type == 'list' %}
-        <ul class="list-style">
-            {% for item in contenu.children %}
-                {% if item.type == 'list-item' %}
-                    <li class="puce">{{ item.children[0].text }}</li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endfor %}
+   
   </div>
 </main>
 

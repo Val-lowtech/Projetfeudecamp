@@ -1,0 +1,12 @@
+<section class="container section-about">
+  <div class="section about inside">
+      <img class="icon" src="/assets/images/logo-favicon.svg" alt="Propaganda icon" />
+      <div>
+        <h3>{{ accueil.data.attributes.about.h3|replace('Nous sommes le projet Feu de Camp', '<span class="red">Nous sommes le projet Feu de Camp') | safe }}</span></h3> 
+      <div class="flex width-is-1000px" style="justify-content: space-between;">  
+        <p>{{ accueil.data.attributes.about.content }}</p>
+        <a href="#" class="bouton secondary arrow-right" > Apprends-en plus </a>
+      </div>
+      </div>
+  </div> 
+</section>

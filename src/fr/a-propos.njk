@@ -22,18 +22,8 @@ locale: "be-fr"
 
 
 
-  <section class="container section-about">
-    <div class="section about inside">
-        <img class="icon" src="/assets/images/icon/logo-favicon.svg" alt="Propaganda icon" />
-        <div>
-          <h3>{{ accueil.data.attributes.about.h3 }}</h3> 
-        <div class="flex width-is-1000px">  
-          <p>{{ accueil.data.attributes.about.content }}</p>
-          <a href="#" class="bouton secondary arrow-right"> Apprends-en plus </a>
-        </div>
-        </div>
-    </div>
-  </section>
+{% include "components/section-a-propos.njk" %}
+
   <div class="container">
     <img src="/assets/images/sincere-inspirant-radical.png">
   </div>
@@ -42,12 +32,12 @@ locale: "be-fr"
   <div class="container">
   <div class="fdc-actions">
     <div class="left">
-        <p style="min-width: 288px;">{{ about.data.attributes.conviction }}</p>
+        <h3 style="min-width: 288px;" class="is-red">{{ about.data.attributes.conviction }}</h3>
     </div>
     <div class="right about">
         <a href="propaganda">
         <div class="actions-titre is-white">
-            <h4>{{ about.data.attributes.conviction-contenu }}</h4>
+            <p>{{ about.data.attributes.conviction_contenu }}</p>
             <a href="{{ about.data.attributes.conviction_cta_link }}" class="bouton secondary arrow-right is-dark">{{ about.data.attributes.conviction_cta }} </a>
         </div></a>
     </div>
@@ -56,12 +46,12 @@ locale: "be-fr"
 
   <div class="fdc-actions">
     <div class="left">
-        <p style="min-width: 288px;">{{ about.data.attributes.mission }}</p>
+        <h3 style="min-width: 288px;" class="is-red">{{ about.data.attributes.mission }}</h3>
     </div>
     <div class="right about">
         <a href="#">
         <div class="actions-titre is-white">
-            <h4>{{ about.data.attributes.mission_contenu }}</h4>
+            <p>{{ about.data.attributes.mission_contenu }}</p>
             <a href="{{ about.data.attributes.mission_cta_link }}" class="bouton secondary arrow-right is-dark">{{ about.data.attributes.mission_cta }}</a>
         </div></a>
     </div>
@@ -70,45 +60,96 @@ locale: "be-fr"
 
   <div class="fdc-actions">
     <div class="left">
-        <p style="min-width: 288px;">Qui se trouve derrière le projet ?</p>
+        <h3 style="min-width: 300px;" class="is-red">Qui se trouve derrière le projet?</h3>
     </div>
-    <div class="right about">
-        <a href="#">
-        <div class="actions-description">
-            <div>
-                <p class="is-dark">Expositions – Ateliers - Marchés - Entraide</p>
-            </div>
+    <div class="right who" style="display: flex; flex-direction: inherit!important;justify-content: inherit;border-radius: 4px;">
+        <div class="photo" style="display: inline-block;min-width: 197px !important;">
+            <img src="https://backend-pfdc.jcloud.ik-server.com/uploads/hugo_2649a3f325.png" style="border-radius: 4px;">
         </div>
-        <div class="actions-titre is-white">
-            <h4>Mettre en réseau les initatives engagées et créatives de Bruxelles déjà en place</h4>
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre des Flammèches dans ton quartier </a>
-        </div></a>
+        <a href="#" class="cursor-external2">
+        <div class="actions-titre" style="display: inline-block;padding-top: 40px;">
+            <h4>Hugo Berlier <span class="italic-fdc" style="font-size: 0.8em;">(i..el)</span></h4><br>
+            <p class="is-dark" style="margin-top:-20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis erat ut lorem sagittis sollicitudin. Phasellus eget dapibus sem, et egestas mi. In ipsum dui, sagittis feugiat lorem in, ultrices varius nulla. </p>
+        </div>
+      </a>
     </div>
-</div>
+</div> 
+<div class="fdc-actions">
+  <div class="left">
+      <h3 style="min-width: 300px;color: transparent;">Qui se trouve derrière le projet?</h3>
+  </div>
+  <div class="right who" style="display: flex; flex-direction: inherit!important;justify-content: inherit;border-radius: 4px;">
+      <div class="photo" style="display: inline-block;min-width: 203px !important;">
+          <img src="https://backend-pfdc.jcloud.ik-server.com/uploads/val_908be208f0.png" style="border-radius: 4px;">
+      </div>
+      <a href="#" class="cursor-external">
+      <div class="actions-titre" style="display: inline-block;padding-top: 40px;">
+          <h4>Valmont Belperroud <span class="italic-fdc" style="font-size: 0.8em;">(il)</span></h4><br>
+          <p class="is-dark" style="margin-top:-20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis erat ut lorem sagittis sollicitudin. Phasellus eget dapibus sem, et egestas mi. In ipsum dui, sagittis feugiat lorem in, ultrices varius nulla. </p>
+      </div>
+      </a>
+  </div>
+</div> 
+
+<div class="fdc-actions"  style="padding-bottom:100px;">
+  <div class="left">
+      <h3 style="min-width: 300px;color: transparent;">Qui se trouve derrière le projet ?</h3>
+  </div>
+  <div class="right" style="display: flex; flex-direction: inherit!important;justify-content: inherit;border-radius: 4px;">
+    <div class="section about inside" style="padding: 40px;color: black;">
+      <img class="icon" src="/assets/images/icon/logo-favicon.svg" alt="Propaganda icon" style="filter: invert(100%);"/>
+      <div>
+        <h3>{{ accueil.data.attributes.about.box_text }}A l’attention des âmes créatives</span></h3>
+      <div class="">  
+        <p style="padding-top: 20px;">{{ accueil.data.attributes.about.paragraph_box_text }}<strong><u></u><span style="color:black;padding-top: 20px";>Le Projet Feu de Camp, ça se veut être bien plus que deux personnes.<br></span></strong> C’est aussi un collectif, un réseau de créatif..ves engagé..es à Bruxelles. 
+
+          Donc, si tu es un..e creatif..ve ou artiste engagé..e comme nous, et que le Projet à éveillé ta curiosité, n’hésite pas à participe au prochain événement pour en apprendre plus. Et oui, c’est vraiment ouvert à tous..te.</p>
+      </div><br>
+      <a href="#" class="bouton secondary arrow-right" style="color: black;
+      border-bottom: 1px solid;">Découvrir les prochains événements</a>
+      </div>
+  </div>
+      
+  </div>
+</div> 
+
 
 </div>
 </section>
 
-<section class="container section-about">
+<!-- <section class="container section-about">
     <div class="section about inside">
         <img class="icon" src="/assets/images/icon/logo-favicon.svg" alt="Propaganda icon" />
         <div>
-          <h3>A l’attention des âmes créatives</span></h3>
+          <h3>{{ accueil.data.attributes.about.box_text }}A l’attention des âmes créatives</span></h3>
         <div class="flex width-is-1000px">  
-          <p>Le Projet Feu de Camp, ça se veut être bien plus que deux personnes. C’est aussi un collectif, un réseau de créatif..ves engagé..es à Bruxelles. 
+          <p>{{ accueil.data.attributes.about.paragraph_box_text }}<strong><u></u><span class="is-red" style="color:#EB3726;">Le Projet Feu de Camp, ça se veut être bien plus que deux personnes.<br></span></strong> C’est aussi un collectif, un réseau de créatif..ves engagé..es à Bruxelles. 
 
             Donc, si tu es un..e creatif..ve ou artiste engagé..e comme nous, et que le Projet à éveillé ta curiosité, n’hésite pas à participe au prochain événement pour en apprendre plus. Et oui, c’est vraiment ouvert à tous..te.</p>
-          <a href="#" class="bouton secondary arrow-right">Découvrir les prochains événements</a>
-        </div>
+        </div><br>
+        <a href="#" class="bouton secondary arrow-right">Découvrir les prochains événements</a>
         </div>
     </div>
-  </section>
+  </section> -->
+
+  {% include "components/tu-veux-en-discuter.njk" %}
 
 <section id="actions" class="container">
     <div class="container">
-    <p class="margin-top-20">Le projet Feu de Camp est...</p>
+    <h3 class="margin-top-20">Les valeurs du projet et leurs définitions</h3>
     </div>
+    <div class="fdc-actions">
+      {% for valeur in about.data[3].attributes.valeurs %}
     <div class="fdc-actions margin-top-40">
+        <div class="left margin-top-40">
+            <h3 style="min-width: 288px;" class="is-red">{{ valeur.titre_gauche_2 }}</h3>
+        </div>
+        <div class="right accordeons margin-top-40">
+           <p>{{ valeur.texte_droite_2 }}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %} 
         <div class="left margin-top-40">
             <h3 style="min-width: 288px;" class="is-red">Radical</h3>
         </div>
@@ -136,8 +177,6 @@ locale: "be-fr"
     </div>
           
 </section>
-
-{% include "components/tu-veux-en-discuter.njk" %}
 
  
 

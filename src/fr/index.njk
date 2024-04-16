@@ -8,9 +8,9 @@ locale: fr-BE
 <main>
   {% include "components/header.njk" %}
 <section id="actions" class="container">
-  <h2 data-scroll class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission ardente</span>') | safe }}</span></h2> 
+  <h2 data-scroll class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission <span class="italic-fdc">ardente</span></span>') | safe }}</span></h2> 
   <div data-scroll class="container">
-{% for activite in activites.data %}
+{% for activite in activites.data | reverse %} 
   <div data-scroll class="fdc-actions">
     <div data-scroll class="left">
         <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
@@ -25,22 +25,21 @@ locale: fr-BE
         </div>
         <div class="actions-titre">
             <h4>{{ activite.attributes.description }}</h4> 
-            <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+            <a href="#" class="bouton secondary arrow-right is-dark">Découvre "{{ activite.attributes.Nom }}" </a>
         </div></a>
-    </div> 
+    </div>
   </div>
- {% endfor %} 
+ {% endfor %}
 </section> 
-
 
   <section class="container section-about">
     <div class="section about inside">
         <img class="icon" src="/assets/images/logo-favicon.svg" alt="Propaganda icon" />
         <div>
-          <h3>{{ accueil.data.attributes.about.h3 }}</h3> 
-        <div class="flex width-is-1000px">  
+          <h3>{{ accueil.data.attributes.about.h3|replace('Nous sommes le projet Feu de Camp', '<span class="red">Nous sommes le projet Feu de Camp') | safe }}</span></h3> 
+        <div class="flex width-is-1000px" style="justify-content: space-between;">  
           <p>{{ accueil.data.attributes.about.content }}</p>
-          <a href="#" class="bouton secondary arrow-right"> Apprends-en plus </a>
+          <a href="#" class="bouton secondary arrow-right" > Apprends-en plus </a>
         </div>
         </div>
     </div>
@@ -50,55 +49,59 @@ locale: fr-BE
   
 
   <section id="actions" class="container">
-    <div class="container flex">
+    <div class="container flex" style="justify-content: space-between;">
     <h2 class="is-800px">Prochains événements,<span class="red"> toujours ouvert à tous..tes</span></h2>
     <a href="#" class="bouton secondary arrow-right"> Découvre l'agenda</a>
     </div>
-    <div class="container-evenement hidden-mobile">{% include "components/event_list.njk" %}</div>
+    <div class="container-evenement hidden-mobile cursor-external3">{% include "components/event_list.njk" %}</div>
  </section> 
 
 
-    <section class="container-fluid background-isred" style="margin-top: 140px;">
+    <section class="container-fluid background-isred" style="margin-top: 140px;padding-bottom: 80px;">
       <div class="container flex test">
         <div class="section-infolettre">
         <h2 class="is-dark">Une infolettre max.<br> 1 fois par mois ! </h2>
-          <div class="cta-links-container">
+          <div class="cta-links-container" style="padding-bottom: 30px;">
             <div>
              <p class="cta-link is-dark">On vous tient au courant des grands tournants du projet quand <br>il y en a.–Vos données ne sont pas partagées et hors GAFAM.</p>    
           </div>  
-        </div>            
-              
+        </div> 
+           
+        <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6IlZ4NDFHQ0JaSmUrME1JUXpWWEhCaDhYZFRNZFIrZWI4cjY1QVpCZ0ZBRDA9IiwidmFsdWUiOiJsWW40YVwvMTc3SHREMHlvdFFXRENNTCtnVWNzRGJ2UFpzVWgwVEkzUHk3MD0iLCJtYWMiOiIxMGVjZjdmNTcwOTYwZTIwYTEyZDlmMzZjNGYyM2VjNTdhZmUzZjA2YjM1YjE3NzQyZWUwMzFmZDUzYWI1MmUxIn0="></script>      
+      </div>
       </div>
     </section>
 
     <section id="actions" class="container">
-      <div class="container flex">
-      <h2 class="is-800px">L’actu, des trouvailles et <span class="red"> des récits brulants</span></h2>
+      <div class="container flex" style="justify-content: space-between;">
+      <h2 class="is-800px">L’actu, des trouvailles et <span class="red"> des récits <span class="italic-fdc">brulants</span></span></h2>
       <a href="#" class="bouton secondary arrow-ri©©ght"> Découvre tous les articles</a>
       <div class=""></div></div>
       <div class="grid margin-top-40">
         {%- for article in articles.data -%} 
         {%- if loop.index <= 3 -%}
-            <div class="project-container">
+            <div class="project-container">        <a href="articles/{{ article.attributes.Slug }}" class="cursor-external3">
                 <div class="header-card">
                     <div class="title-container">
-                        <div class="project-title">{{ article.attributes.tags }}</div>
+                        <div class="project-title">{{ article.attributes.tags.data[0].attributes.name }}</div>
                     </div>
                     <div class="duration-container">
-                        <div class="duration">{{ post.data.temps }}</div> 
+                        <div class="duration">lecture: {{ article.attributes.TempsLecture }}</div> 
                     </div>
-                </div>
+                </div> 
                 <div class="content">
                     <div class="project-details">
+                      <div class="duration">{{ article.attributes.date | postDate }}</div>
                         <div class="project-name">{{ article.attributes.title }}</div>
-                        <div class="project-description">{{ article.attributes.content }}</div>
+                        <div class="project-description">{{ article.attributes.resume_en_deux_lignes }}</div>
                     </div>
                     <div class="read-more">
-                        <a href="articles/{{ article.attributes.title }}" class="bouton secondary arrow-right">lire l’article</a>
+                        <a href="articles/{{ article.attributes.Slug }}" class="bouton secondary arrow-right">lire l’article</a>
                     </div> 
-                </div>
+                </div>          </a>
             </div>
-        {%- endif -%}
+
+        {%- endif -%}   
     {%- endfor -%}
     
     </div>

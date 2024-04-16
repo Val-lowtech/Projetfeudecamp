@@ -8,14 +8,14 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
 <main>
 <header class="header">
     <div class="container gap-40">
-        <p class="subtitle is-red">{{ activites.data[1].attributes.courte_description }}</p>
-        <h2 class="title is-red">{{ activites.data[1].attributes.texte_entete[0].children[0].text }}</h2>
-        <p class="description is-red">{{ activites.data[1].attributes.texte_entete[1].children[0].text }}</p>
+        <p class="subtitle is-red" style="margin-bottom: 20px;">{{ activites.data[3].attributes.courte_description }}</p>
+        <h2 class="title is-red" style="font-size:72px;">{{ activites.data[3].attributes.texte_entete[0].children[0].text }}</h2>
+        <p class="description is-red">{{ activites.data[3].attributes.texte_entete[1].children[0].text }}</p>
         <div class="container cta-container">
-            <div class="cta-title bouton secondary arrow-right has-margin-top is-red">Découvre nos offres détaillées</div>
+            <div class="cta-title bouton secondary arrow-right has-margin-top is-red"><a href="#offre" style="color: var(--rouge-fdc);">Découvre nos offres détaillées</a></div>
         </div>
     
-    <h3 class="margin-top-80 is-red">{{ activites.data[1].attributes.texte_en_dessous_header }}</div>
+    <h3 class="margin-top-80 is-red">{{ activites.data[3].attributes.texte_en_dessous_header }}</div>
     <div class="container grid logo-client margin-top-40">
         <img src="/assets/images/collaborations/Cultureghem.svg"><img src="/assets/images/collaborations/FoodWin.svg"><img src="/assets/images/collaborations/horsentier.svg"></div>
     <div class="container grid logo-client margin-top-40"><img src="/assets/images/collaborations/ped4all.svg"><img src="/assets/images/collaborations/Vub.svg"><img src="/assets/images/collaborations/Vub.svg"></div></div>
@@ -24,21 +24,21 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
 
 <section id="offre" class="container-fluid margin-top-80">
 <div class="container">
-  <h2 class="is-dark">{{ activites.data[1].attributes.zone_texte[0].children[0].text }}</h2>
-  <p class="margin-top-20">{{ activites.data[1].attributes.zone_texte[1].children[0].text }}</p>
+  <h2 class="is-dark" style="max-width: 44%;">{{ activites.data[3].attributes.zone_texte[0].children[0].text }}</h2>
+  <p class="margin-top-20" style="max-width: 38%;">{{ activites.data[3].attributes.zone_texte[1].children[0].text }}</p>
   <div class="container"> 
   <div class="fdc-actions">
     <div class="left"> 
-        <h3>{{ activites.data[1].attributes.titre_offre_1 }}</h3>
+        <h3>{{ activites.data[3].attributes.titre_offre_1 }}</h3>
     </div>
     
     <div class="right-a">
-        {% for collaboration in activites.data[1].attributes.Collaboration_et_accompagnement_Offres_test %}
-            <div class="right accordeons">
+        {% for collaboration in activites.data[3].attributes.Collaboration_et_accompagnement_Offres_test %}
+            <div class="right accordeons" >
                 <details>
                     <summary class="accordeons">
                         <div class="left">
-                            <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ collaboration.attributes.picto.data.attributes.url }}" alt="Propaganda icon" />
+                            <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ collaboration.icon.data.attributes.url }}" alt="Propaganda icon" />
                             <p>{{ collaboration.sur_titre }}</p>
                         </div>
                         <h3>{{ collaboration.h3 }}</h3>
@@ -46,25 +46,35 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
                     {% for contenu in collaboration.contenu %}
                         {% if contenu.type == 'paragraph' %}
                             {% if contenu.children[0].bold == true %}
-                                <p class="bold-style">{{ contenu.children[0].text }}</p>
+                                <p class="bold-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
                             {% elseif contenu.children[0].underline == true %}
-                                <p class="underline-style">{{ contenu.children[0].text }}</p>
+                                <p class="underline-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
                             {% elseif contenu.children[0].code == true %}
-                                <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
-                            {% else %} 
-                                <p>{{ contenu.children[0].text }}</p>
+                                <p class="code-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
+                            {% else %}
+                                <p style="margin-left:40px;font-size:17px;max-width:60%;">{{ contenu.children[0].text }}</p>
                             {% endif %}
                         {% elseif contenu.type == 'list' %}
-                            <ul class="list-style">
+                            <ul class="list-style"> 
                                 {% for item in contenu.children %}
                                     {% if item.type == 'list-item' %}
-                                        <li class="puce">{{ item.children[0].text }}</li>
+                                        <li class="puce" style="margin-left:40px">{{ item.children[0].text }}</li>
                                     {% endif %}
                                 {% endfor %}
                             </ul>
-                        {% endif %}
+                        {% elif contenu.type == 'heading' and contenu.level == 4 %}
+   <h4 style="margin-left:40px;padding-top:30px;line-height: 120%!important;max-width:60%;">{{ contenu.children[0].text }}</h4>
+{% endif %}
                     {% endfor %}
-                    <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+                    <p class="underline-style" style="margin-left:40px">Une question? Envie d’en discuter?</p>
+                     <div data-scroll class="button is-wrap" style="padding-bottom:30px!important;">
+      <a class="bouton primary inverse arrow" href="mailto:propaganda@pojetfeudecamp.com?subject=Votre offre Conseiller, débloquer et raviver, on peut en discuter?&body=Bonjour, pourrions-nous discuter d'une potentielle collaboration? / J'ai une question concernant votre offre. (N'hésitez pas à nous en dire plus sur votre projet/asbl)" style="background-color: white;color: black;margin-left: 40px !important;margin-top: 10px;">Envoyer un mail pré-rempli</a>
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">PDF Avec exemples</a>
+    </div>
+     <div data-scroll class="button is-wrap" style="margin-left:40px;">
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">+32 499 83 55 72</a>
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">propaganda@projetfeudecamp.com</a>
+    </div>
                 </details>
             </div>
         {% endfor %}
@@ -89,10 +99,10 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
   <div class="container">
     <div class="fdc-actions">
       <div class="left">
-          <h3 style="min-width: 288px;">{{ activites.data[1].attributes.titre_offre_2 }}</h3>
+          <h3 style="min-width: 288px;">{{ activites.data[3].attributes.titre_offre_2 }}</h3>
       </div>
       <div class="right-a">
-        {% for collaboration in activites.data[1].attributes.Creation_et_lancement_de_projet_Offres %}
+        {% for collaboration in activites.data[3].attributes.Creation_et_lancement_de_projet_Offres %}
         <div class="right accordeons">
             <details> 
             <summary class="accordeons">
@@ -103,10 +113,41 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
                 </div>
                 <h3>{{ collaboration.h3 }}</h3>
             </summary>
-                <h4>{{ collaboration.h3 }}</h4>
-                <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
-            </details>
-        </div>
+                    {% for contenu in collaboration.contenu %}
+                        {% if contenu.type == 'paragraph' %}
+                            {% if contenu.children[0].bold == true %}
+                                <p class="bold-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
+                            {% elseif contenu.children[0].underline == true %}
+                                <p class="underline-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
+                            {% elseif contenu.children[0].code == true %}
+                                <p class="code-style" style="margin-left:40px">{{ contenu.children[0].text }}</p>
+                            {% else %}
+                                <p style="margin-left:40px;font-size:17px;max-width:60%;">{{ contenu.children[0].text }}</p>
+                            {% endif %}
+                        {% elseif contenu.type == 'list' %}
+                            <ul class="list-style"> 
+                                {% for item in contenu.children %}
+                                    {% if item.type == 'list-item' %}
+                                        <li class="puce" style="margin-left:40px">{{ item.children[0].text }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% elif contenu.type == 'heading' and contenu.level == 4 %}
+   <h4 style="margin-left:40px;padding-top:30px;line-height: 120%!important;max-width:60%;">{{ contenu.children[0].text }}</h4>
+{% endif %}
+                    {% endfor %}
+                    <a href="#" class="bouton secondary arrow-right is-dark">Découvre la Propaganda </a>
+                    <p class="underline-style" style="margin-left:40px">Une question? Envie d’en discuter?</p>
+                     <div data-scroll class="button is-wrap" style="padding-bottom:30px!important;">
+      <a class="bouton primary inverse arrow" href="mailto:propaganda@pojetfeudecamp.com?subject=Votre offre Conseiller, débloquer et raviver, on peut en discuter?&body=Bonjour, pourrions-nous discuter d'une potentielle collaboration? / J'ai une question concernant votre offre. (N'hésitez pas à nous en dire plus sur votre projet/asbl)" style="background-color: white;color: black;margin-left: 40px !important;margin-top: 10px;">Envoyer un mail pré-rempli</a>
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">PDF Avec exemples</a>
+    </div>
+     <div data-scroll class="button is-wrap" style="margin-left:40px;">
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">+32 499 83 55 72</a>
+      <a class="bouton secondary arrow-right has-margin-top" href="/a-propos">propaganda@projetfeudecamp.com</a>
+    </div>
+                </details>
+            </div>
         {% endfor %}
     </div> 
 
@@ -117,12 +158,12 @@ description: "Créer de l’engagement autour de la cause de celleux qui portent
 
  
 
-  <section id="actions" class="container">
+  <section id="actions" style="margin-top: 80px;" class="container">
     <div class="container">
-    <h2>{{ activites.data[1].attributes.H2 }}</h2>
-    <p class="margin-top-20">L’approche de projet Feu de Camp en 5 points</p>
+    <h2>{{ activites.data[3].attributes.H2 }}</h2>
+    <p class="">L’approche de projet Feu de Camp en 5 points</p>
     </div>
-    {% for valeur in activites.data[1].attributes.valeurs_approches %}
+    {% for valeur in activites.data[3].attributes.valeurs_approches %}
     <div class="fdc-actions margin-top-40">
         <div class="left margin-top-40">
             <h3 style="min-width: 288px;" class="is-red">{{ valeur.titre_gauche_1 }}</h3>
