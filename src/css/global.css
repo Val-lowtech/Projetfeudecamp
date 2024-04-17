@@ -28,6 +28,18 @@
     --blanc-fdc: #FEFDF9;
 }
 
+/* Inside <style> tag */
+@media print and (min-resolution: 60dpi) {
+    body {  background-color: red);
+        color: black);
+        font-family: "Amiamie";  }
+        .container  {
+            width: 600px;
+            margin: 0 auto;
+        }
+   }
+   
+
 body{
     background-color: var(--noir-fdc);
     color: var(--blanc-fdc);
