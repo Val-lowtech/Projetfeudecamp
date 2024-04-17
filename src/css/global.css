@@ -1987,9 +1987,14 @@ ul.list-style {
     flex-direction: column;
   }
 
-  .flex{
+  .flex {
     flex-direction: initial;
   }
+
+  .flex.reset-mobile {
+    flex-direction: column;
+  }
+
   .cta-link.flex.nospace-between{
   scroll-snap-align: start;min-width: 92%;border:solid 1px var(--noir-fdc);border-radius: 4px;padding:30px 0px 30px 0px;max-height: 80px;
   align-items: center;margin-right: 5px!important;}
@@ -2056,9 +2061,22 @@ ul.list-style {
     margin: 0 auto;
 
   }
+  .footer-container{
+    padding-top: 80px;
+  }
 
   section {
     padding-top: 60px;
+  }
+
+  .border-box{height: 460px;width: 100%;}
+  .number{font-size: 26px;display: inline-block;top:230px;left:30px;}
+  .event-image-container{position: relative;left: 0;top: -50px!important;;}
+  .date-location{top: 270px;left:30px;}
+  .quote{
+    left: 30px;
+  top: 340px;
+  width: 90%;
   }
 }
     /* Adjust other styles as needed for smaller screens */
