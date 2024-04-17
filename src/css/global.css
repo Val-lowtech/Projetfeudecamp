@@ -30,13 +30,24 @@
 
 /* Inside <style> tag */
 @media print and (min-resolution: 60dpi) {
-    body {  background-color: red);
-        color: black);
-        font-family: "Amiamie";  }
+    body {  background-color: red!important;
+        color: black!important;
+        font-family: "Amiamie"!important;  }
         .container  {
-            width: 600px;
+            width: 600px!important;
             margin: 0 auto;
         }
+        h1, 
+h2, 
+h3,
+h4  {
+    font-family: "Amiamie!important";
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+font-smooth: never; 
+}
+
    }
    
 
