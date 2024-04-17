@@ -11,16 +11,11 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
-<script>
-    (function () {
-        var scroll = new LocomotiveScroll();
-    })();
-</script>
+
     <div class="nav-parent container-fluid hidden-mobile">
         <nav class="container classformobile">
         <ul>
-            <li div="logo"><a href="index.html" aria-label="Revenir à la page d'accueil">
+            <li div="logo"><a href="/fr/index.html" aria-label="Revenir à la page d'accueil">
                 <img src="/assets/images/logo.svg" alt="Logo Projet Feu de Camp" style="height: 55px;">
             </a></li>
         </ul> 
@@ -113,7 +108,7 @@
 <div class="nav-mobile">
     <div class="nav-mobile-inside">
         <div class="nav-mobile-coloumn-1 first">
-            <a class="Logo-mobile" href="/accueil">
+            <a class="Logo-mobile" href="/fr/index.html">
               <img src="/assets/images/logo.svg" alt="Logo Projet Feu de Camp" style="height: 55px;">
             </a>
         </div>
@@ -263,23 +258,20 @@ function myFunction() {
   }
 }
 
-// Fermeture du menu déroulant si l'utilisateur clique en dehors
-window.onclick = function(event) {
-  if (!event.target.matches('.burger-menu')) {
-    var dropdowns = document.getElementsByClassName("inside-burger");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+// // Fermeture du menu déroulant si l'utilisateur clique en dehors
+// window.onclick = function(event) {
+//   if (!event.target.matches('.burger-menu')) {
+//     var dropdowns = document.getElementsByClassName("inside-burger");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
 
         // Réinitialisation du texte du bouton lors de la fermeture du menu
         var menuButton = document.getElementById("menuButton");
         menuButton.innerHTML = "Menu";
-      }
-    }
-  }
-} 
+//       }
 </script>
 
 

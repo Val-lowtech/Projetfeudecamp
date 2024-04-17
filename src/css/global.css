@@ -724,6 +724,10 @@ nav [role="button"] {
     border-radius: 100px;
 }
 
+.hidden-desktop {
+    display: none;
+}
+
 .project-title {
     color: #EFEFEF;
     font-size: 18px;
@@ -2069,7 +2073,7 @@ ul.list-style {
     padding-top: 60px;
   }
 
-  .border-box{height: 460px;width: 100%;}
+  .border-box{height: 530px;width: 100%;}
   .number{font-size: 26px;display: inline-block;top:230px;left:30px;}
   .event-image-container{position: relative;left: 0;top: -50px!important;;}
   .date-location{top: 270px;left:30px;}
@@ -2078,6 +2082,28 @@ ul.list-style {
   top: 340px;
   width: 90%;
   }
+  .event-link{
+    left: 0;top: 450px;position: relative;top: 174px;
+    position: relative;
+    padding-right: 30px;
+  }
+
+  .button.is-wrap{
+    flex-direction: initial;padding-bottom: 30px!important;align-items: end;
+  }
+  
+  .button.is-wrap a{
+    margin-right: 20px;
+  }
+  #menuButton{color: var(--noir-fdc)!important;;}
+  .container-dropdown{border:0px;}
+  .item{border-bottom: 0.25px solid black;flex-direction: initial;}
+  .icon-container{  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+    filter: invert(100%);}
+
+  .header.is-red{min-height: 60vh;}
+  .hidden-desktop{display: inline-block;}
+
 }
     /* Adjust other styles as needed for smaller screens */
 
