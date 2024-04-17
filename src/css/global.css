@@ -1632,6 +1632,37 @@ ul.list-style {
 
 @media only screen and (max-width: 768px) {
 
+    .mobile-scroll {
+        width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  display: flex;
+  margin-left: -0px;
+  margin-top: 20px;
+}
+
+.actions-titre h4 {
+    font-size: 26px;
+    line-height: 120%;
+}
+
+.mobile-scroll::-webkit-scrollbar {
+    display: visible;
+    }
+    .fdc-actions{
+        min-width:75vw!important;
+        margin-left: 15px;
+    }
+    .fdc-actions .right .actions-description{border:0px;border-bottom: 1px solid black;}
+    h1{
+        font-size: 40px!important;
+    }
+
+    .header.is-red h1 {
+        padding-bottom: 20px!important;
+    }
+
     .nav-mobile-inside{
         display: flex;
     }
@@ -1946,20 +1977,38 @@ ul.list-style {
   }
 
   h1 {
-    font-size: 72px;
+    font-size: 46px;
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 28px;
   }
 
   p {
-    font-size: 20px;
+    font-size: 16px;
   }
+
+  .accordeons {
+    width: 90%;
+  }
+
+  .accordeons > h3{
+    font-size: 26px;
+  }
+  .fdc-actions .right.accordeons{margin-left: -25px;}
+
+  .title.is-red{font-size: 32px;line-height: 120%;}
+  .description.is-red{font-size: 16px;line-height: 140%;margin-top: 20px;}
 
   .fdc-actions .left {
     margin-bottom: 10px;
   }
+
+  .fdc-actions{margin-top: 20px;}
 
   .section-infolettre {
     width: 95%;

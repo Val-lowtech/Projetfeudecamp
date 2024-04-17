@@ -9,7 +9,8 @@ locale: fr-BE
   {% include "components/header.njk" %}
 <section id="actions" class="container">
   <h2 data-scroll class="half">{{ accueil.data.attributes.h2|replace('mission ardente', '<span class="red">mission <span class="italic-fdc">ardente</span></span>') | safe }}</span></h2> 
-  <div data-scroll class="container">
+</section> 
+  <div data-scroll class="container mobile-scroll">
 {% for activite in activites.data | reverse %} 
   <div data-scroll class="fdc-actions">
     <div data-scroll class="left">
@@ -29,7 +30,7 @@ locale: fr-BE
         </div></a>
     </div>
   </div>
- {% endfor %}
+ {% endfor %}</div>
 </section> 
 
   <section class="container section-about">
