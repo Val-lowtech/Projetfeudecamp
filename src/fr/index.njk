@@ -13,12 +13,12 @@ locale: fr-BE
   <div data-scroll class="container mobile-scroll">
 {% for activite in activites.data | reverse %} 
   <div data-scroll class="fdc-actions">
+    <a href="propaganda" class="cursor-external3"> 
     <div data-scroll class="left">
         <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
         <p>{{ activite.attributes.Nom }}</p>
     </div>
     <div data-scroll class="right">
-        <a href="propaganda"> 
         <div class="actions-description"> 
             <div>
                 <p class="is-dark">{{ activite.attributes.courte_description }}</p>
@@ -27,9 +27,9 @@ locale: fr-BE
         <div class="actions-titre">
             <h4>{{ activite.attributes.description }}</h4> 
             <a href="#" class="bouton secondary arrow-right is-dark">Découvre "{{ activite.attributes.Nom }}" </a>
-        </div></a>
+        </div>
     </div>
-  </div>
+  </div></a>
  {% endfor %}</div>
 </section> 
 
@@ -82,7 +82,7 @@ locale: fr-BE
       <div class="grid margin-top-40">
         {%- for article in articles.data -%} 
         {%- if loop.index <= 3 -%}
-            <div class="project-container">        <a href="articles/{{ article.attributes.Slug }}" class="cursor-external3">
+            <div class="project-container">        <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}//" class="cursor-external3">
                 <div class="header-card">
                     <div class="title-container">
                         <div class="project-title">{{ article.attributes.tags.data[0].attributes.name }}</div>
@@ -114,3 +114,42 @@ locale: fr-BE
   
   
 </main>
+<script>// Fully accessible tooltip jQuery plugin with delegation.
+  // Ideal for view containers that may re-render content.
+  (function ($) {
+    $.fn.tooltip = function () {
+      this
+  
+      // Delegate to tooltip, Hide if tooltip receives mouse or is clicked (tooltip may stick if parent has focus)
+        .on('mouseenter click', '.tooltip', function (e) {
+          e.stopPropagation();
+          $(this).removeClass('isVisible');
+        })
+        // Delegate to parent of tooltip, Show tooltip if parent receives mouse or focus
+        .on('mouseenter focus', ':has(>.tooltip)', function (e) {
+          if (!$(this).prop('disabled')) { // IE 8 fix to prevent tooltip on `disabled` elements
+            $(this)
+              .find('.tooltip')
+              .addClass('isVisible');
+          }
+        })
+        // Delegate to parent of tooltip, Hide tooltip if parent loses mouse or focus
+        .on('mouseleave blur keydown', ':has(>.tooltip)', function (e) {
+          if (e.type === 'keydown') {
+            if(e.which === 27) {
+              $(this)
+                .find('.tooltip')
+                .removeClass('isVisible');
+            }
+          } else {
+            $(this)
+              .find('.tooltip')
+              .removeClass('isVisible');
+          }
+        });
+      return this;
+    };
+  }(jQuery));
+  
+  // Bind event listener to container element
+  $('.namespace').tooltip();</script>

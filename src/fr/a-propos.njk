@@ -8,7 +8,7 @@ locale: "be-fr"
 <main>
 <header class="header is-red">
   <div class="container padding-top-240">
-    <p class="is-dark">{{ about.data.attributes.sur_titre }}</p>
+    <p class="is-dark" style="margin-bottom: 20px;">{{ about.data.attributes.sur_titre }}</p>
     <h2 class="is-dark" style="padding-bottom: 40px;">{{ about.data.attributes.titre }}</h2>
       <div class="button is-wrap">
         <a class="bouton primary arrow" href="#actions">En apprendre plus</a>
@@ -66,7 +66,7 @@ locale: "be-fr"
         <div class="photo" style="display: inline-block;min-width: 197px !important;">
             <img src="https://backend-pfdc.jcloud.ik-server.com/uploads/hugo_2649a3f325.png" style="border-radius: 4px;">
         </div>
-        <a href="#" class="cursor-external2">
+        <a href="#" class="cursor-external3">
         <div class="actions-titre" style="display: inline-block;padding-top: 40px;">
             <h4>Hugo Berlier <span class="italic-fdc" style="font-size: 0.8em;">(i..el)</span></h4><br>
             <p class="is-dark" style="margin-top:-20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis erat ut lorem sagittis sollicitudin. Phasellus eget dapibus sem, et egestas mi. In ipsum dui, sagittis feugiat lorem in, ultrices varius nulla. </p>
@@ -136,7 +136,7 @@ locale: "be-fr"
 
 <section id="actions" class="container">
     <div class="container">
-    <h3 class="margin-top-20">Les valeurs du projet et leurs définitions</h3>
+    <h2 class="margin-top-20">Les valeurs du projet et leurs définitions</h2>
     </div>
     <div class="fdc-actions">
       {% for valeur in about.data[3].attributes.valeurs %}

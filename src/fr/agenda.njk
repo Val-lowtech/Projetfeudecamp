@@ -19,5 +19,61 @@ locale: "be-fr"
 </header>
 
 <section id="actions" class="container">
-<div class="container-evenement hidden-mobile cursor-external3">{% include "components/event_list.njk" %}</div>
+<div class="container-evenement hidden-mobile cursor-external3">{% for evenement in evenements.data %}
+
+  <a href="evenements/{{ evenement.attributes.slug }}" class="cursor-external3">
+    <div class="border-box">
+      <div id="dateStrapi{{ loop.index }}" class="number">
+        {{ evenement.attributes.date | postDate }}
+      </div> 
+      <div class="date-location">
+        <span>à </span><a href="{{ evenement.attributes.Lieu_lien }}" target="_blank" class="underline">{{ evenement.attributes.Lieu }}</a>
+      </div>
+      <div class="event-image-container">
+      <img src="https://backend-pfdc.jcloud.ik-server.com{{ evenement.attributes.icon.data.attributes.url }}" alt="Placeholder Image" class="event-image" />
+      </div>
+      <div class="quote">{{ evenement.attributes.title }}</div> 
+      <div class="event-link"> 
+        <a href="evenements/{{ evenement.attributes.slug }}" class="bouton secondary arrow-right">Voir l’événement</a>
+      </div>  
+    </div>
+  </a>
+  
+    <!-- Dynamic script for each element placed after the loop -->
+    <!-- <script>
+      console.log('Script is running.');
+  
+      // Define rawData without using let
+      var rawData{{ loop.index }} = '{{ evenement.attributes.date }}';
+      console.log('Raw data:', rawData{{ loop.index }});
+  
+      function formatMyDate(value, locale = 'en-GB') {
+        // Check if the value is empty or undefined
+        if (!value) {
+          console.error('Empty or undefined timestamp.');
+          return 'No Date Available';
+        }
+  
+        const date = luxon.DateTime.fromISO(value);
+  
+        // Check if the date is valid
+        if (!date.isValid) {
+          console.error('Invalid date:', value);
+          return 'Invalid Date';
+        }
+  
+        // Format the date using Luxon
+        var luxonTimestamp = date.setLocale(locale).toLocaleString(luxon.DateTime.DATE_SHORT);
+  
+        return luxonTimestamp;
+      }
+  
+      // Get the element where you want to display the formatted date
+      var dateElement{{ loop.index }} = document.getElementById('dateStrapi{{ loop.index }}'); // Replace with the actual ID
+  
+      // Set the innerHTML of the element with the formatted date
+      dateElement{{ loop.index }}.innerHTML = formatMyDate(rawData{{ loop.index }});
+    </script> -->
+
+  {% endfor %}</div>
 </section>

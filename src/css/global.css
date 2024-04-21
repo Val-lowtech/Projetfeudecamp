@@ -22,6 +22,11 @@
     src: url("../assets/fonts/Amiamie-Light.woff");
 }
 
+@font-face {
+    font-family: Amiamie-black;
+    src: url("../assets/fonts/Amiamie-black.ttf");
+}
+
 :root{
     --noir-fdc: #0c0c0c;
     --rouge-fdc: #EB3726;
@@ -390,8 +395,26 @@ nav [role="button"] {
 }
 
 .fdc-actions .article {
-    background: transparent; flex-direction: column; justify-content: flex-end; align-items: flex-start; display: inline-flex; max-width: 700px!important;
+    background: transparent; flex-direction: column; justify-content: flex-end; align-items: flex-start; display: inline-flex; max-width: 680px!important;
 }
+
+.article p {
+    font-size: 20px!important;
+    line-height: 32px;
+}
+
+.article img {
+    margin-top: 56px;
+}
+
+.article h2, .article h3{
+    font-size: 26px;
+    line-height: 36px;
+    font-family: "Amiamie-black";
+    margin-bottom: 0.94em;
+}
+
+.article{max-width: 680px;margin: 0 auto;}
 
 .metadata{
     padding: 8px 8px 6px 8px;
@@ -719,9 +742,7 @@ nav [role="button"] {
     align-items: flex-start;
     gap: 10px;
     display: flex;
-    margin-left: 20px;
-    margin-top: 20px;
-    border-radius: 100px;
+    border-radius: 4px;
 }
 
 .hidden-desktop {
@@ -1651,6 +1672,7 @@ ul.list-style {
     line-height: 120%;
 }
 
+
 .mobile-scroll::-webkit-scrollbar {
     display: visible;
     }
@@ -2189,3 +2211,35 @@ ul.list-style {
     display: inline-flex;
     min-width: 1059px;
   }
+
+  .tooltip {
+    border-bottom: 2px dotted black;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    width: 100%;
+    background-color: var(--rouge-fdc);
+    border: 1px solid var(--noir-fdc);
+    color: var(--noir-fdc);
+    text-align: left;
+    border-radius: 4px;
+    padding: 10px 20px 10px 20px;
+    line-height: 160%;
+    font-size: 20px;
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+  

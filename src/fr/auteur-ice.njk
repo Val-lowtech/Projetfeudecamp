@@ -1,0 +1,64 @@
+---
+title: Auteur-ices
+layout: layouts/base.njk
+locale: "fr-be"
+pagination:
+  data: auteurices.data
+  size: 1
+  alias: auteurice
+permalink: 'fr/auteurices/{{ auteurice.attributes.slug }}/'
+eleventyImport:
+  collections: ["articles"]
+eleventyComputed:
+   title: "{{ auteurice.attributes.Prenom}}"
+---
+
+<main>
+    <header class="header is-red" style="min-height: auto!important;padding-bottom: 20px;"> 
+      <div class="container padding-top-240">
+        <img src="https://backend-pfdc.jcloud.ik-server.com{{ auteurice.attributes.Photo.data.attributes.url }}" style="float:left; max-height: 300px; padding-right: 10px;margin-right: 40px;border-radius: 4px;">
+        <h2 class="is-dark" style="padding-bottom: 20px;text-align: left;">{{ auteurice.attributes.Prenom }} {{ auteurice.attributes.Nom }} </h2>
+        <div style="display: flex; margin-bottom: 40px;padding-bottom: 40px;">
+          <div class="flex" style="margin-right: 20px;align-items: center;">
+            <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/icon_tag_05245df72c.svg" alt="tags" />
+            <a href="http://localhost:8080/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}" class="metadata" style="color: black; border-color: black;">Pronom: {{ auteurice.attributes.Pronom }}</a>
+          </div>
+          <div class="flex" style="margin-right: 20px;align-items: center;">
+            <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/auteur_f5fead90d2.svg" alt="Auteurice" />
+            <p>
+                Instagram: <a href="{{ auteurice.attributes.Lien_instagram }}" target="_new">{{ auteurice.attributes.Lien_instagram }}</a><br/>
+                </p>
+          </div>
+        </div> 
+        <p class="is-dark" style="margin-left: 300px;padding-bottom:80px;">Bio</p>
+      </div>
+    </header>
+
+     
+      <section class="container">
+        <h3>Articles Rédigés par {{ auteurice.attributes.Prenom }}</h3>
+          {% for article in auteurice.data %}
+            <div class="project-container">        <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}//" class="cursor-external3">
+              <div class="header-card">
+                  <div class="title-container">
+                      <div class="project-title">{{ article.attributes.tags.data[0].attributes.name }}</div>
+                  </div>
+                  <div class="duration-container">
+                      <div class="duration">lecture: {{ article.attributes.TempsLecture }}</div> 
+                  </div>
+              </div> 
+              <div class="content">
+                  <div class="project-details">
+                    <div class="duration">{{ article.attributes.date | postDate }}</div>
+                      <div class="project-name">{{ article.attributes.title }}</div>
+                      <div class="project-description">{{ article.attributes.resume_en_deux_lignes }}</div>
+                  </div>
+                  <div class="read-more">
+                      <a href="articles/{{ article.attributes.Slug }}" class="bouton secondary arrow-right">lire l’article</a>
+                  </div> 
+              </div>          </a>
+          </div>
+
+        {% endfor %}
+    </section>
+</main>

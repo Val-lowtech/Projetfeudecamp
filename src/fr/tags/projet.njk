@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+title: Tag"
+locale: fr-BE
+data: articles.data
+permalink: /fr/tags/projet/
+---
+
+<h1>Tagged “Projet”</h1>
+
+<section  class="container">
+{% for article in articles.data %}
+    {% if article.attributes.tags.data[0].attributes.name === "Projet" %}
+       <div class="project-container">        <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}//" class="cursor-external3">
+                <div class="header-card">
+                    <div class="title-container">
+                        <div class="project-title">{{ article.attributes.tags.data[0].attributes.name }}</div>
+                    </div>
+                    <div class="duration-container">
+                        <div class="duration">lecture: {{ article.attributes.TempsLecture }}</div> 
+                    </div>
+                </div> 
+                <div class="content">
+                    <div class="project-details">
+                      <div class="duration">{{ article.attributes.date | postDate }}</div>
+                        <div class="project-name">{{ article.attributes.title }}</div>
+                        <div class="project-description">{{ article.attributes.resume_en_deux_lignes }}</div>
+                    </div>
+                    <div class="read-more">
+                        <a href="articles/{{ article.attributes.Slug }}" class="bouton secondary arrow-right">lire l’article</a>
+                    </div> 
+                </div>          </a>
+            </div>
+    {% endif %}
+{% endfor %}
+</section>

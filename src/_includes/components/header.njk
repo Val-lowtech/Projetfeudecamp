@@ -1,9 +1,59 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script>document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    var tooltips = document.querySelectorAll(".tooltip");
+
+    tooltips.forEach(function (tooltip) {
+      var tooltipText = tooltip.querySelector(".tooltiptext");
+
+      // tooltip bounding and calculations
+      function adjustTooltipPosition() {
+        var rect = tooltip.getBoundingClientRect();
+        var tooltipWidth = tooltipText.offsetWidth;
+
+        var spaceLeft = rect.left;
+        var spaceRight = window.innerWidth - rect.right;
+
+        tooltipText.style.left = "50%";
+        tooltipText.style.right = "auto";
+        tooltipText.style.transform = "translateX(-50%)";
+
+        if (spaceRight < tooltipWidth / 2) {
+          tooltipText.style.left = "auto";
+          tooltipText.style.right = "0";
+          tooltipText.style.transform = "translateX(0)";
+        }
+
+        if (spaceLeft < tooltipWidth / 2) {
+          tooltipText.style.left = "0";
+          tooltipText.style.transform = "translateX(0)";
+        }
+
+        if (rect.top < tooltipText.offsetHeight) {
+          tooltipText.style.top = "100%";
+          tooltipText.style.bottom = "auto";
+        } else {
+          tooltipText.style.bottom = "100%";
+          tooltipText.style.top = "auto";
+        }
+      }
+
+      // call adjustTooltipPosition initially
+      adjustTooltipPosition();
+
+      // call adjustTooltipPosition on window resize
+      window.addEventListener("resize", adjustTooltipPosition);
+    });
+  }, 100); // delay on bounding in ms
+});
+</script>
 <header class="header is-red">
   <div class="container padding-top-240">
+    <!-- <p class="subtitle is-dark" style="margin-bottom: 20px;border:1px solid black;display:inline-block;padding:10px;">Notre mission</p> -->
     {% if locale == 'fr-BE' %}
-      <h1 data-scroll>{{ accueil.data.attributes.Titre }}</h1>
+      <h1>Attiser les liens entre celleux<span class="tooltip">qui portent le changement<span class="tooltiptext"><strong>Celleux qui portent le changement?</strong> Pour nous c'est les ASBL et tout projet qui lutte contre toutes opression d'un groupe d'individu sur un autre. Découvre notre charte pour en apprendre plus</span></span> et <span class="tooltip">celleux qui le racontent<span class="tooltiptext">Celleux qui le <em>racontent</em></em>? Pour nous c'est le créatfi..ve et artistes militant..e qui veulent mettre leur art pour une cause qui leur parle</span></span></h1>
     {% elif locale == 'en' %}
-      <h1 data-scroll>{{ accueil.data.attributes.localizations.data[0].attributes.Titre }}</h1>
+      <h1>{{ accueil.data.attributes.localizations.data[0].attributes.Titre }}</h1>
     {% endif %}
     <div data-scroll class="button is-wrap">
       <a class="bouton primary arrow" href="#actions">Nos actions</a>
@@ -16,4 +66,3 @@
     </div>
   </div>
 </header>
- 

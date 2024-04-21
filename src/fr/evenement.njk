@@ -1,8 +1,9 @@
 ---
-title: Evenement
+title: '{{ data.evenement.attributes.title }}'
 layout: layouts/base.njk
 img: {{ evenenents.attributes.img }}
 permalink: '/fr/evenements/{{ evenement.attributes.slug }}'
+data: evenements.data
 pagination:
   data: evenements.data
   size: 1
@@ -10,6 +11,70 @@ pagination:
 ---
 
 <main>
+  <header class="header is-red" style="min-height: auto!important;padding-bottom: 20px;"> 
+    <div class="container padding-top-240">
+      <h2 class="is-dark" style="padding-bottom: 20px;text-align: center;">{{ evenement.attributes.title }}</h2>
+      <div style="display: flex; margin-bottom: 40px;justify-content: center;padding-bottom: 120px;">
+        <div class="flex" style="margin-right: 20px;align-items: center;">
+          <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/icon_tag_05245df72c.svg" alt="tags" />
+          <p class="metadata" style="color: black; border-color: black;">{{ evenement.attributes.tags.data[0].attributes.name }}</p>
+        </div>
+        <div class="flex" style="margin-right: 20px;align-items: center;">
+          <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/auteur_f5fead90d2.svg" alt="Auteurice" />
+          <p class="metadata" style="color: black; border-color: black;">{{ evenement.attributes.author }}</p>
+        </div>
+        <div class="flex" style="margin-right: 20px;align-items: center;">
+          <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/ical_2d2e09300b.svg" alt="iCal" />
+          <p class="metadata" style="color: black; border-color: black;">{{ evenement.attributes.date | postDate }}</p>
+        </div>
+        <div class="flex" style="margin-right: 20px;align-items: center;">
+          <img class="icon" style="filter: invert(100);" src="https://backend-pfdc.jcloud.ik-server.com/uploads/lien_utile_fe0a607efb.svg" alt="liens" />
+          <p class="metadata" style="color: black; border-color: black;">{{ evenement.attributes.liens }}</p>
+        </div>
+      </div> 
+  
+    </div>
+  </header>
+  
+  <section class="container">  
+    <article class="article">
+      {% for contenu in evenement.attributes.content %} 
+      {% if contenu.type == 'paragraph' %}
+          {% if contenu.children[0].bold == true %}
+              <p class="bold-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].underline == true %}
+              <p class="underline-style">{{ contenu.children[0].text }}</p>
+          {% elseif contenu.children[0].code == true %}
+              <p class="code-style underline-style">{{ contenu.children[0].text }}</p>
+          {% else %} 
+              <p>{{ contenu.children[0].text }}</p>
+          {% endif %}
+          
+     {% elseif contenu.type == 'list' %}
+          <ul class="list-style">
+              {% for item in contenu.children %}
+                  {% if item.type == 'list-item' %}
+                      <li class="puce">{{ item.children[0].text }}</li>
+                  {% endif %}
+              {% endfor %}
+          </ul>
+          {% elif contenu.type == 'heading' and contenu.level == 3 %}
+     <h3 style="padding-top:0px;line-height: 120%!important">{{ contenu.children[0].text }}</h3>
+     {% elif contenu.type == 'heading' and contenu.level == 2 %}
+     <h2 style="line-height: 120%!important">{{ contenu.children[0].text }}</h2>
+     {% elif contenu.type == 'heading' and contenu.level == 4 %}
+     <h4 style="padding-top:40px;padding-bottom:15px; 120%!important">{{ contenu.children[0].text }}</h4>
+     {% elif contenu.type == 'image' %}
+     <img src="{{ contenu.image.url}}"">
+      {% endif %}
+  {% endfor %}
+      </div>
+    <div class="container max-600"> 
+     
+    </div>
+    </article>
+
+<!-- <main>
 <header class="header is-red" style="min-height: 60vh!important;">
   <div class="container padding-top-240">
     <h2 class="is-dark" style="padding-bottom: 40px;">{{ evenement.attributes.title }}</h2><br>
@@ -68,5 +133,5 @@ pagination:
   {% endfor %}
     </div>
 
-</main>
+</main> -->
 

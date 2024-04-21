@@ -2,7 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {% for evenement in evenements.data %}
-{%- if loop.index <= 3 -%}
+{%- if loop.index <= 2 -%}
 <a href="evenements/{{ evenement.attributes.slug }}" class="cursor-external3">
   <div class="border-box">
     <div id="dateStrapi{{ loop.index }}" class="number">
@@ -18,7 +18,7 @@
     <div class="event-link"> 
       <a href="evenements/{{ evenement.attributes.slug }}" class="bouton secondary arrow-right">Voir l’événement</a>
     </div>  
-  </div>
+  </div> 
 </a>
 
   <!-- Dynamic script for each element placed after the loop -->
