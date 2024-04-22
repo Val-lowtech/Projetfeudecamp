@@ -1661,6 +1661,43 @@ ul.list-style {
         opacity: 1;
         visibility: visible;
       }
+      .tooltip .tooltiptext {
+        width: 100%;
+        background-color: var(--rouge-fdc);
+        border: 1px solid var(--noir-fdc);
+        color: var(--noir-fdc);
+        text-align: left;
+        border-radius: 4px;
+        padding: 10px 20px 10px 20px;
+        line-height: 160%;
+        font-size: 20px;
+        transition: opacity 0.5s, visibility 0.5s;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: 1;
+        transform: translateX(-100px)!important;
+  min-width: 305px!important;
+      }
+      .tooltip .tooltiptext.notransform {
+        width: 100%;
+        background-color: var(--rouge-fdc);
+        border: 1px solid var(--noir-fdc);
+        color: var(--noir-fdc);
+        text-align: left;
+        border-radius: 4px;
+        padding: 10px 20px 10px 20px;
+        line-height: 160%;
+        font-size: 20px;
+        transition: opacity 0.5s, visibility 0.5s;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: 1;
+        transform: translateX(0px) !important;
+      }
     nav ul li:active > ul {
         display:inherit;
     }
@@ -2226,7 +2263,7 @@ ul.list-style {
 
   .tooltip {
     border-bottom: 2px dotted black;
-    cursor: pointer;
+    cursor: help;
     position: relative;
     /* display: inline-block; */
   }
