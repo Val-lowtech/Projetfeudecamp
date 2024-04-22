@@ -1854,7 +1854,7 @@ ul.list-style {
     .fdc-actions .right .actions-description {
         height: auto;
         padding: 20px;
-        min-height: 80px;
+        /* min-height: 80px; */
     }
 
     .section-about{
