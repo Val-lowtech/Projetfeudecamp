@@ -1656,6 +1656,11 @@ ul.list-style {
 
 
 @media only screen and (max-width: 768px) {
+    .tooltip:active .tooltiptext {
+        pointer-events: auto;
+        opacity: 1;
+        visibility: visible;
+      }
     nav ul li:active > ul {
         display:inherit;
     }
@@ -2249,4 +2254,6 @@ ul.list-style {
     opacity: 1;
     visibility: visible;
   }
+
+ 
   
