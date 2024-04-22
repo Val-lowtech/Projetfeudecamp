@@ -1,6 +1,13 @@
 const HtmlMin = require('html-minifier');
 const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const { DateTime } = require("luxon");
+const { compress } = require('eleventy-plugin-compress');
+
+module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(compress, {
+    /* Optional options. */
+  });
+};
 
 module.exports = function (eleventyConfig) {
 

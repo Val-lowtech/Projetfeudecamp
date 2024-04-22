@@ -452,7 +452,7 @@ chalk@^2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.2:
+chalk@^4.0.2, chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -711,6 +711,11 @@ electron-to-chromium@^1.4.601:
   version "1.4.616"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.616.tgz"
   integrity sha512-1n7zWYh8eS0L9Uy+GskE0lkBUNK83cXTVJI0pU3mGprFsbfSdAc15VTFbo+A+Bq4pwstmL30AVcEU3Fo463lNg==
+
+eleventy-plugin-compress@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/eleventy-plugin-compress/-/eleventy-plugin-compress-1.0.5.tgz"
+  integrity sha512-6COfs50AuGIMMW3aNku4otNqlOMP7/zDTMaCQ3I3e0Y+DpdyPT9rOK62PzTjLtTfBPo7VDgRpZykPMO6dytqIA==
 
 encodeurl@~1.0.2:
   version "1.0.2"
