@@ -1672,6 +1672,8 @@ ul.list-style {
     line-height: 120%;
 }
 
+.actions-titre{margin-left: 50px!important;}
+
 
 .mobile-scroll::-webkit-scrollbar {
     display: visible;
