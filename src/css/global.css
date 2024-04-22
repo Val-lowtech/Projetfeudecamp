@@ -1658,9 +1658,9 @@ ul.list-style {
 @media only screen and (max-width: 768px) {
 
     .mobile-scroll {
-        width: 100vw;
+     /*    width: 100vw;
   overflow-y: scroll;
-  /*scroll-snap-type: x mandatory;
+ scroll-snap-type: x mandatory;
   scroll-snap-stop: always;*/
   display: flex;
   margin-left: -0px;
