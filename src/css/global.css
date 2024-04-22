@@ -1656,7 +1656,10 @@ ul.list-style {
 
 
 @media only screen and (max-width: 768px) {
-
+    nav ul li:active > ul {
+        display:inherit;
+    }
+   
     .mobile-scroll {
          width: 100vw;
   overflow-y: scroll;
@@ -1857,6 +1860,8 @@ ul.list-style {
         /* min-height: 80px; */
     }
 
+   
+
     .section-about{
         margin-top: 60px;
         margin-bottom: 60px;
@@ -1990,6 +1995,7 @@ ul.list-style {
   
   .flex.width-is-1000px {
     width: 100%;
+    flex-direction: column;
   }
 
   .container.classformobile{
