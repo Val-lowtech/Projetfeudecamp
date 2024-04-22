@@ -13,7 +13,7 @@ locale: fr-BE
   <div data-scroll class="container mobile-scroll">
 {% for activite in activites.data | reverse %} 
   <div data-scroll class="fdc-actions">
-    <a href="propaganda" class="cursor-external3"> 
+    
     <div data-scroll class="left">
         <img class="icon" src="https://backend-pfdc.jcloud.ik-server.com{{ activite.attributes.icon.data.attributes.url }}" alt="Propaganda icon" />
         <p>{{ activite.attributes.Nom }}</p>
@@ -29,7 +29,7 @@ locale: fr-BE
             <a href="#" class="bouton secondary arrow-right is-dark">Découvre "{{ activite.attributes.Nom }}" </a>
         </div>
     </div>
-  </div></a>
+  </div>
  {% endfor %}</div>
 </section> 
 
