@@ -2,6 +2,7 @@
 title: Article
 layout: layouts/base.njk
 locale: "fr-be"
+tags: "posts"
 pagination:
   data: articles.data
   size: 1
@@ -72,6 +73,10 @@ permalink: 'fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articl
    
   </div>
   </article>
+
+ 
+
+  
   <!-- <div class="fdc-actions">
     <div class="left" style="min-width: 280px;flex-direction: column;">
       <div class="flex">
@@ -126,5 +131,25 @@ permalink: 'fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articl
   <div class="container max-600"> 
    
   </div> -->
+
+  {%- for recomArticle in articles.data -%} 
+            <div class="project-container">     
+                <div class="header-card">
+                    <div class="title-container">
+                </div> 
+                <div class="content">
+                    <div class="project-details">
+                        <div class="project-name">{{ recomArticle.attributes.RecomArticle[0].test }}</div>
+                    </div>
+                    <div class="read-more">
+                        <a href="articles/{{ recomArticle.attributes.RecomArticle[0].lien_article }}" class="bouton secondary arrow-right">lire l’article</a>
+                    </div> 
+                </div>          </a>
+            </div>
+      
+      {%- endfor -%}
+      
+
+
 </main>
 

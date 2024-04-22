@@ -21,6 +21,18 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.addFilter("getPermalink", function getPermalink(collection, id) {
+    const post = collection.find((post) => post.data.id === id);
+    if (post) {
+        return post.url;
+    } else {
+        console.error(`Post with id '${id}' not found.`);
+        return null;
+    }
+});
+
+
+
   eleventyConfig.setTemplateFormats(["njk", "html", "liquid", "njk"]);
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/assets/");
