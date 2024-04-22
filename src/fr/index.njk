@@ -83,7 +83,8 @@ locale: fr-BE
       <div class="grid margin-top-40">
         {%- for article in articles.data -%} 
         {%- if loop.index <= 3 -%}
-            <div class="project-container">        <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}//" class="cursor-external3">
+           <div class="project-container">        
+              <!--  <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}//" class="cursor-external3"> -->
                 <div class="header-card">
                     <div class="title-container">
                         <div class="project-title">{{ article.attributes.tags.data[0].attributes.name }}</div>
@@ -99,9 +100,10 @@ locale: fr-BE
                         <div class="project-description">{{ article.attributes.resume_en_deux_lignes }}</div>
                     </div>
                     <div class="read-more">
-                        <a href="articles/{{ article.attributes.Slug }}" class="bouton secondary arrow-right">lire l’article</a>
+                        <a href="/fr/tags/{{ article.attributes.tags.data[0].attributes.name }}/articles/{{ article.attributes.Slug }}/" class="bouton secondary arrow-right">lire l’article</a>
                     </div> 
-                </div>          </a>
+                </div>        
+                <!-- </a> -->
             </div>
 
         {%- endif -%}   

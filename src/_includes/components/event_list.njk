@@ -3,7 +3,7 @@
 
 {% for evenement in evenements.data %}
 {%- if loop.index <= 2 -%}
-<a href="evenements/{{ evenement.attributes.slug }}" class="cursor-external3">
+<!-- <a href="evenements/{{ evenement.attributes.slug }}" class="cursor-external3"><p style="font-size:1px;">voir l'evenements</p> -->
   <div class="border-box">
     <div id="dateStrapi{{ loop.index }}" class="number">
       {{ evenement.attributes.date | postDate }}
@@ -18,8 +18,8 @@
     <div class="event-link"> 
       <a href="evenements/{{ evenement.attributes.slug }}" class="bouton secondary arrow-right">Voir l’événement</a>
     </div>  
-  </div> 
-</a>
+  </div>
+<!-- </a> -->
 
   <!-- Dynamic script for each element placed after the loop -->
   <!-- <script>
