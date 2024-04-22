@@ -6,6 +6,7 @@ const { compress } = require('eleventy-plugin-compress');
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(compress, {
     /* Optional options. */
+    
   });
 };
 
