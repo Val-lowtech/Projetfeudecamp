@@ -1241,12 +1241,14 @@ nav [role="button"] {
 }
 
 .inf-main_f27a4f23a9840cbee6ccaa3194e86ea0 .inf-input input::placeholder {
-    color: red!important;
+    color: #000000!important;
     opacity: 1; /* Firefox */
+    font-weight: 600;
   }
   
   .inf-main_f27a4f23a9840cbee6ccaa3194e86ea0 .inf-input input::-ms-input-placeholder { /* Edge 12 -18 */
-    color: red!important;
+    color: #000000!important;
+    font-weight: 600;
   }
 
 .link::after {
