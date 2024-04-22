@@ -1661,10 +1661,10 @@ ul.list-style {
      /*    width: 100vw;
   overflow-y: scroll;
  scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;*/
+  scroll-snap-stop: always;
   display: flex;
   margin-left: -0px;
-  margin-top: 20px;
+  margin-top: 20px;*/
 }
 
 .actions-titre h4 {
