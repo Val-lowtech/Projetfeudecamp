@@ -13,17 +13,17 @@
 
     <div class="nav-parent container-fluid hidden-mobile">
         <nav class="container classformobile">
-        <ul>
-            <li div="logo"><a href="/fr/index.html" aria-label="Revenir à la page d'accueil">
+        
+            <div id="logo"><a href="/fr/index.html" aria-label="Revenir à la page d'accueil">
                 <img src="/assets/images/logo.svg" alt="Logo Projet Feu de Camp" style="height: 55px;">
-            </a></li>
-        </ul> 
-        <ul>
+            </a></div>
+        
+        
             {% if nav.data.attributes.Elements_ephemere %}
 <div class="annonce-container">
     <a href="{{ nav.data.attributes.lien_element_ephemere }}" class="link2 annonce">{{ nav.data.attributes.Elements_ephemere }}</a></li>
 </div>
-{% endif %} 
+{% endif %} <ul>
             <li><a href="./" class="link-dropdown">Actions</a>
                 <ul>
                     <div class="container-dropdown">
@@ -191,7 +191,6 @@
             <div class="title">Infolettre</div>
             <div class="description">Suis l’aventure avec notre Infolettre – un à deux mail(s) par mois pour être tenu..e au courrant..e du Projet, d’événement à venir, articles...</div> 
         </div>    
-        <script type="text/javascript" src="https://webform.statslive.info/ow/eyJpdiI6IlZ4NDFHQ0JaSmUrME1JUXpWWEhCaDhYZFRNZFIrZWI4cjY1QVpCZ0ZBRDA9IiwidmFsdWUiOiJsWW40YVwvMTc3SHREMHlvdFFXRENNTCtnVWNzRGJ2UFpzVWgwVEkzUHk3MD0iLCJtYWMiOiIxMGVjZjdmNTcwOTYwZTIwYTEyZDlmMzZjNGYyM2VjNTdhZmUzZjA2YjM1YjE3NzQyZWUwMzFmZDUzYWI1MmUxIn0="></script> 
         </div>
         <div class="footer-links">
             <img src="/assets/images/logo.svg" alt="Logo Projet Feu de Camp" style="height: 55px;">

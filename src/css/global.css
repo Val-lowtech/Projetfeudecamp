@@ -1038,6 +1038,10 @@ nav [role="button"] {
   border: 1px solid var(--noir-fdc);
   border-radius: 30px;
   /* transform: translateX(-5%); */
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .annonce-container.annonce-container::after{
@@ -1169,6 +1173,10 @@ nav [role="button"] {
     align-items: center;
     gap: 80px;
     display: flex;
+}
+
+#logo{
+    padding-top: 20px;
 }
 
 .footer-content {
