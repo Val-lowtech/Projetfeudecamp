@@ -1876,11 +1876,11 @@ ul.list-style {
         flex-direction: column;
     }
     .fdc-actions .right {
-        max-width: 100vw;
+     /*   max-width: 100vw;
     min-width: 85%;
     scroll-snap-align: start;
     min-height: 360px;
-    justify-content: normal;
+    justify-content: normal;*/
   }
   .fdc-actions .right h4{
     padding-bottom: 40px;
